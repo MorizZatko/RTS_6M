@@ -1,0 +1,6 @@
+Vorname = input("Wie lautet dein Vorname?")
+Nachname = input("Wie lautet dein Nachname?")
+
+print(f"{Vorname.strip()} {Nachname.strip()}")
+print(f"{Nachname.strip()}, {Vorname.strip()}")
+print(f"{Vorname.strip()[0]}.{Nachname.strip()[0]}.")
