@@ -1,0 +1,2 @@
+resolution = (1920, 1080)
+resolution[0] = 3840 ##Das Tuple Objekt lässt keine Element zuweisung zu
