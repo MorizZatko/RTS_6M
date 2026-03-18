@@ -1,0 +1,22 @@
+file_name = input("Dateiname zur Prüfung:")
+no_go = [" ", ",", "!", "?", "@", "#", "<", ">", "|", "'", "+", "*", "~"]
+
+has_space = " " in file_name
+has_comma = "," in file_name
+has_mark1 = "!" in file_name
+has_mark2 = "?" in file_name
+has_at = "@" in file_name
+has_hashtag = "#" in file_name
+has_arwleft = "<" in file_name
+has_arwright = ">" in file_name
+has_line = "|" in file_name
+has_upmark = "'" in file_name
+has_plus = "+"in file_name
+has_star = "*" in file_name
+has_wave = "~" in file_name
+
+if has_space or has_comma or has_mark1 or has_mark2 or has_at or has_hashtag or has_arwleft or has_arwright or has_line or has_upmark or has_plus or has_star or has_wave:
+    print("Warnung: Der Name enthält unzulässige Zeichen!")
+else:
+    print("DATEINAME OK: Bereit für Pipeline!")
+
