@@ -1,0 +1,13 @@
+user_path = input("Dateipfad:")     # User Input
+
+if user_path.startswith("C:\\"):    # Prüft ob der Input mit C:\ beginnt
+    user_path = user_path.replace("C:\\", "/mnt/server/", 1)    # ersetzt C:\ durch /mnt/server einmal falls im namen nochmal c:\ vorkommt
+
+user_path = user_path.replace("\\", "/" )   # ersetzt \ durch /
+split = user_path.split("/")    # teilt den input bei jedem /
+project_name = split[4]     # extrahiert den Projekt Namen beim 4. Index
+rest_a = "/".join(split[:4]).lower()    # schreibt alles klein bis zum 3. Index (exklusiv) mit / zwischen jedem Wort
+rest_b = "/".join(split[5:]).lower()    # schreibt alles klein ab dem 5. Index mit / zwischen jedem Wort
+final_path = f"{rest_a}/{project_name}/{rest_b}"    # fügt alle strings wider zusammen zu einem finalen string
+
+print(f"Pfad umgewandelt in: {final_path}")     # gibt den finalen string aus
