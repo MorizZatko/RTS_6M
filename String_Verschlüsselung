@@ -1,0 +1,10 @@
+word = input("Zu verschlüsselndes Wort:")
+
+start = word[0]
+last = word[-1]
+mid = word[0:-1]
+length = len(word)
+
+new_word = last + mid + start + str(length)
+
+print(f"{new_word}")
