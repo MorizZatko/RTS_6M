@@ -1,10 +1,10 @@
-word = input("Zu verschlüsselndes Wort:")
+word = input("Zu verschlüsselndes Wort:") 
 
-start = word[0]
-last = word[-1]
-mid = word[0:-1]
-length = len(word)
+start = word[0]     # Extrahiert dem ersten Index
+last = word[-1]     # Extrahiert dem letzten Index
+mid = word[1:-1]    # Extrahiert alle Indexs zwischen dem ersten un dem letzten
+length = len(word)  # Extrahiert die Anzahl der Indexs als Zahl
 
-new_word = last + mid + start + str(length)
+new_word = last + mid + start + str(length) # fügt alle Indexe in einer neuen Reihenfolge zusammen
 
 print(f"{new_word}")

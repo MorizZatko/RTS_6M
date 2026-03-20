@@ -1,0 +1,13 @@
+path = "/mnt/server/Projekte/Shot01/Render/v001/image.0001.exr"
+
+split = path.split("/")
+path_start = ("/").join(split[:6])
+
+path_version = ("/").join(split[6:7])
+path_version_new_number = int(path_version[1:8]) + 998
+path_version_new = path_version[0:1]
+
+path_end = ("/").join(split[7:])
+
+
+print(f"{path_start}/{path_version_new}{path_version_new_number:03d}/{path_end}")

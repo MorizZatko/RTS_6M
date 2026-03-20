@@ -1,20 +1,20 @@
 path = ["C:\\Projekte\\Shot01\\Render", "D:\\Backup\\Old", "C:\\Projexe\\Shot02\\Final"]
-path_1 = path[0].replace("\\", "/")
-path_2 = path[1].replace("\\", "/")
-path_3 = path[2].replace("\\", "/")
+path_1 = path[0].replace("\\", "/")     # Extrahiert path_1 aus der Liste
+path_2 = path[1].replace("\\", "/")     # Extrahiert path_2 aus der Liste
+path_3 = path[2].replace("\\", "/")     # Extrahiert path_3 aus der Liste
 
-if path_1.startswith("C:"):
-    path_1 = path_1.replace("C:", "/mnt/server", 1)
-if path_1.startswith("D:"):
-    path_1 = False
-if path_1 == False:
+if path_1.startswith("C:"):     # prüft ob path_1 mit C: beginnt
+    path_1 = path_1.replace("C:", "/mnt/server", 1)     # wenn path_1 mit C: beginnt wird es durch /mnt/... ersetzt
+if path_1.startswith("D:"):     # prüft ob path_1 mit D: beginnt
+    path_1 = False      # wenn path_1 mit D: beginnt - Boolean Wert False
+if path_1 == False:     # wenn path_1 False ist, wird "Backup-Pfad ignoriert" ausgegeben
     print("Backup-Pfad ignoriert")
-else:
-    split = path_1.split("/")
-    path_1_start = ("/").join(split[:4])
-    path_1_name = ("/").join(split[4:5]).upper()
-    path_1_end = ("/").join(split[5:])
-    print(f"{path_1_start}/{path_1_name}/{path_1_end}")
+else:                   # wenn path_1 nicht False ist
+    split = path_1.split("/")   # trennt path_1 bei jedem / 
+    path_1_start = ("/").join(split[:4])    # extrahiert die ersten 4 Elemente und klebt ein / zwischen die 4 Elemente
+    path_1_name = ("/").join(split[4:5]).upper()    # extrahiert das Element 4, schreibt es groß und klebt ein, da es nur ein Element beinhaltet wird kein / "eingeklebt"
+    path_1_end = ("/").join(split[5:])  # Extrahiert alles nach dem 4 Element und klebt ein / zwischen die Elemente
+    print(f"{path_1_start}/{path_1_name}/{path_1_end}")     # gibt alle 3 gesplitten Variablen wieder als ein Satz aus, zwischen jeder Variable steht ein /
 
 if path_2.startswith("C:"):
     path_2 = path_2.replace("C:", "/mnt/server", 1)
