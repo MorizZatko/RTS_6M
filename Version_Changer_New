@@ -1,0 +1,18 @@
+path = [
+    "/mnt/server/Projekte/Shot01/Render/Unterordner/v001/image.0001.exr",
+    "/mnt/server/Projekte/Shot02/Render/Unterordner/Versions/v008/image.0001.exr",
+    "/mnt/server/Projekte/Shot03/Render/v012/image.0001.exr"
+]
+
+for single_path in path:
+    split = single_path.strip("/").split("/")
+
+    path_start = "/".join(split[:-2])
+
+    path_version = split[-2]
+    path_version_number = int(path_version[1:]) + 1
+    path_new_number = f"v{path_version_number:03d}"
+
+    path_end = split[-1]
+
+    print(f"/{path_start}/{path_new_number}/{path_end}")
