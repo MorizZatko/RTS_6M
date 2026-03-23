@@ -1,0 +1,24 @@
+path = [
+    "/mnt/server/Projekte/Shot01/Render/v001/image.0001.exr",
+    "/mnt/server/Projekte/Notizen.txt",
+    "/mnt/server/Projekte/Shot02/Render/v008/image.0001.exr",
+    "/mnt/server/Projekte/Shot02/Render/voice01/image.0001.exr"
+]
+
+for single_path in path:
+    split = single_path.strip("/").split("/")
+    print(f"DEBUG: Prüfe Pfad: {single_path}")
+
+    if len(split) >= 2 and split[-2].startswith("v") and split[-2][1:].isdigit():
+        print("--> Check bestanden! Versions-Nummer wird erhöht...")
+        path_start = ("/").join(split[:-2])
+        path_version = split[-2]
+        path_version_new = int(path_version[1:]) + 1
+        path_new_number = f"v{path_version_new:03d}"
+        path_end = split[-1]
+        print(f"/{path_start}/{path_new_number}/{path_end}")
+    else: 
+        print("--> Überprüfung fehlgeschlagen! Keine Versions-Nummer an Index -2 erkannt.")
+        print(f"Pfad Übersprungen: {single_path} (ungültiger Ordner)")
+
+
