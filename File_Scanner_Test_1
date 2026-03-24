@@ -1,0 +1,48 @@
+import os
+import shutil
+
+user_input = input("Bitte den Pfad zum Ordner eingeben: ") # C:\Users\moriz\Desktop\python_test
+real_path = user_input.replace('"', '').strip()
+
+if not os.path.exists(real_path):
+    print(f"FEHLER: Der Pfad '{real_path}' existiert nicht!")
+    exit()
+
+files = os.listdir(real_path)
+all_versions = []
+extension = ""
+
+for file_name in files:
+    name = file_name[0:-4]
+    path = f"{real_path}\\{file_name}".replace("\\", "/")
+    if name.startswith("v") and name[1:].isdigit():
+        version_num = int(name[1:])
+        all_versions.append(version_num)
+
+        if version_num == max(all_versions, default=0):
+             extension = file_name[-4:]
+
+if not all_versions:
+    print("Keine Datei mit Versions-Nummer gefunden!")
+    exit()
+
+if all_versions:
+    highest_v = max(all_versions)
+    new_v = highest_v + 1
+    print(f"Die Datei mit der Höchsten Versions-Nummer ist: v{new_v:03d}{extension}")
+
+    old_file = f"v{highest_v:03d}{extension}"
+    new_file = f"v{new_v:03d}{extension}"
+    print(f"Old file: {old_file}\nNew file: {new_file}")
+
+    old_path = os.path.join(real_path, old_file).replace("\\", "/")
+    new_path = os.path.join(real_path, new_file).replace("\\", "/")
+    print(f"Old Path: {old_path}\nNew Path: {new_path}")
+
+    if not os.path.exists(new_path):
+        shutil.copy(old_path, new_path)
+        print(f"Update: {old_file} wurd zu {new_file} kopiert!")
+    
+else:
+    print("Keine Version zum erhöhen gefunden...")
+
