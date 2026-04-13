@@ -1,9 +1,9 @@
-# 1. Compiler-Artefakte
-*.pyc
+# Git soll diese Ordner ignorieren.
 
-# 2. Build-Ordner
+# Build Artefakte, die nur auf deinem Rechner entstehen
 /build/
-/dist/
+/venv/ 
 
-# 3. Umgebungsvariablen
-.env
+# Lokale Konfigurationsdateien
+.DS_Store
+.idea/ 
