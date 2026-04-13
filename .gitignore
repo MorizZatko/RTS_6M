@@ -1,0 +1,9 @@
+# 1. Compiler-Artefakte
+*.pyc
+
+# 2. Build-Ordner
+/build/
+/dist/
+
+# 3. Umgebungsvariablen
+.env

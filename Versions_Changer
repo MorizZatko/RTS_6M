@@ -1,13 +1,12 @@
-path = "/mnt/server/Projekte/Shot01/Render/v001/image.0001.exr"
+path = "/mnt/server/Projekte/Shot01/Render/v001/image.0001.exr"     # Input Pfad
 
-split = path.split("/")
-path_start = ("/").join(split[:6])
+split = path.split("/")     # splittet den Pfad bei jedem /
+path_start = ("/").join(split[:6])  # extrahiert den anfang des Pfades bis zum 5 Index
 
-path_version = ("/").join(split[6:7])
-path_version_new_number = int(path_version[1:8]) + 998
-path_version_new = path_version[0:1]
+path_version = ("/").join(split[6:7])   # extrahiert die Verions Nummer aus dem Pfad
+path_version_new_number = int(path_version[1:8]) + 1    # extrahiert das Element nach der ersten Ziffer der Versions Nummer als Integer und rechnet +1
+path_version_new = path_version[0:1]    # extrahiert die erste Ziffern aus der Versions Nummer
 
-path_end = ("/").join(split[7:])
+path_end = ("/").join(split[7:])    # extrahiert alles nach der Versions Nummer
 
-
-print(f"{path_start}/{path_version_new}{path_version_new_number:03d}/{path_end}")
+print(f"{path_start}/{path_version_new}{path_version_new_number:03d}/{path_end}")   # gibt den gesamten Pfad aus mit geänderter Versions Nummer (möglich bis 999)
