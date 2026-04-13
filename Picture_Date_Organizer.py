@@ -7,14 +7,40 @@ from tkinter import ttk, filedialog, messagebox
 from PIL import Image
 from PIL.ExifTags import TAGS
 from colorama import init, Fore, Style
+# Import von Datenbanken
 
+"""
+Erstellung von globalen Variablen und Listen.
+
+Die Listen "Image_EXT" und "Video_EXT" werden mit Tuplen (Datei-Endungen) gefüllt.
+
+Args:
+    None.
+
+Returns:
+    None.
+"""
 user_path = ""
 all_files = []
 plan = []
 Image_EXT = [".jpg", ".jpeg", ".png", ".arw", ".raw", ".tiff", ".tif", ".psd", ".psb", ".nef" ]
 Video_EXT = [".mp4", ".mov"]
 
+
 def create_plan():
+    """
+    Erstellt die Globale "plan" Liste, in dem der ausgewählte Ordner gescannt wird 
+    und aus allen Dateien eine Liste mit den wichtigen Metadaten sammelt.
+
+    Die Funktion durchläuft alle Dateien, erstellt für jede einen vollständigen Pfad
+    und versucht das Aufnahme-Datum der Exif zu ermitteln oder fallback (WindowsDatum) zu bestimmen.
+
+    Args:
+        None. Verlässt sich auf die gobalen Variablen "all_files" (Datei-Liste) und "user_path" (aktuell gewählter Ordner)
+
+    Returns:
+        Keine direkten Rückgabewerte. Funktion ändert die globalen Variablen "plan" und füllt sie mit Tuplen (Datei-Name, Datum, Datei-Endung)
+    """
     global plan
     plan = []
     for f in all_files:
@@ -24,10 +50,20 @@ def create_plan():
         if not date:
             date = "Unbekanntes_Datum"
         plan.append((f, date, ext))
-
-
+# Funktion um eine Liste zu erstellen mit allen Dateien die ein Datum in der Exif haben
 
 def get_shooting_date(pic_path):
+    """
+    Die Funktion scannt jede Datei im "Pic-Path" nach einer Exif Datei,
+    und extrahiert das Datum. Fallback: Wenn kein Datum in der Exif steht,
+    wird der letzte timestamp von Windows genommen.
+
+    Args:
+        "pic_path" ist der vollständige Pfad zur Bild-Datei, deren Datum extrahiert werden soll
+
+    Returns:
+        None.
+    """
     try:
         with Image.open(pic_path) as img:
             exif_date = img._getexif()
@@ -41,10 +77,20 @@ def get_shooting_date(pic_path):
      
     ts = os.path.getmtime(pic_path)
     return datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
-
+# Funktion um das Datum der Datei auszulesen, falls keine Exif vorhanden ist, wird das Windows Datum genommen
     
 
 def select_folder():
+    """
+    Funktion fragt Nutzer nach dem Ordner, prüft ob relevante Dateien enthalten sind und zäht diese, gibt die Information über das GUI aus.
+    Fallback: Keine Dateien im Ornder, wird ausgegeben über die GUI.
+
+    Args:
+        None. Funktion nutzt globale Variablen "all_files" und "user_path"
+
+    Returns:
+        None. Funktion arbeitet eng mit Tkinter zusammen um die Information dem Nutzer zu präsentieren
+    """
     global all_files
     global user_path 
     user_path = filedialog.askdirectory(title="Ordner zum Scannen wählen")
@@ -81,8 +127,21 @@ def select_folder():
     log_area.insert(tk.END, "Bereit zum Sortieren, klicke auf 'Start'.\n")
     log_area.insert(tk.END, "-" * 40)
     log_area.see(tk.END)
+# Funktion zum Scannen des angegeben Ordners, prüft ob der Ornder existiert und wie viele Dateien enthalten sind
 
 def show_stats():
+    """
+    Funktion erstellt einer Statistik nach den Kategorien (Bilder, Videos, Andere) mit allen gefunden Dateien und zählt diese. 
+    Fallback: Keine Dateien gefunden, wird über GUI ausgegeben.
+
+    Args:
+        None. Funktion nutzt globale Variablen "all_files" und "plan" so wie die funktion "create_plan".
+
+    Returns:
+        Stats: Die Liste stats speichert die Statistik die erstellt wurde. Die Funktion ist eng mit Tkinter verknüpft 
+        und gibt alle notwendigen Information im GUI aus
+
+    """
     global all_files
     global plan
 
@@ -125,9 +184,28 @@ def show_stats():
 
     log_area.insert(tk.END, "-" * 40 + "\n")
     log_area.see(tk.END)
-
+# Funktion zeigt an wie viele Dateien im Ornder "Bilder", "Videos" oder "andere Dateien" sind
 
 def start_sorting():
+    """
+    Startet den Hauptsortier- und Bewegungs-/Kopierprozess für Bilddaten.
+
+    Dieser Prozess führt folgende Schritte aus:
+    1. Vorab-Prüfung: Stellt sicher, dass ein Quell-Ordner ausgewählt wurde.
+    2. Vorschau: Zeigt dem Nutzer eine Übersicht über die zu findenden Dateitypen (Bilder, Videos, Andere).
+    3. Zielauswahl: Fordert den Nutzer zur Auswahl des Ziel-Root-Ordners auf.
+    4. Durchführung: Durchläuft jede gefundene Datei. Bei gültigen Dateitypen wird das Dateiformat
+       nach dem EXIF-Datum in Unterordnern neu erstellt. Die Datei wird dann entweder kopiert oder verschoben
+       und der Fortschritt wird laufend im GUI angezeigt.
+    5. Abschluss: Erstellt ein finales Protokoll mit allen bearbeiteten Dateinamen.
+
+    Args:
+        (Diese Funktion ist eng mit dem GUI-Kontext gekoppelt und nutzt globale
+        Variablen wie user_path, plan und sort_mode, um ihren Zustand zu erhalten.)
+
+    Returns:
+        None. Die Ergebnisse werden über die GUI (log_area) und Pop-up-Messageboxen ausgegeben.
+    """
     global user_path
     global full_path
     global plan
@@ -247,7 +325,7 @@ def start_sorting():
                         f"Videos: {stats['Videos']}\n"
                         f"Andere Dateien: {stats['Andere Dateien']}\n"
                         f"{processed_count} Dateien wurden kopiert/verschoben!")
-    
+# Funktion die nach dem Ziel-Ordner frägt und dann alle Bild und Video Daten kopiert oder verschiebt, ein log-file erstellt und ausgibt wie viele Daten bewegt wurden    
     
 
 
@@ -255,6 +333,7 @@ bg_color = "#2e2e2e"
 fg_color = "#ffffff"
 accent_color = "#ff8c00"
 text_bg = "#1e1e1e"
+# Farb definiton
 
 window = tk.Tk()
 window.title("Foto_Datum_Sortierer_V2")
@@ -305,5 +384,6 @@ btn_quit.pack(side=tk.RIGHT, padx=5)
 
 progress = ttk.Progressbar(window, orient="horizontal", length=400, mode="determinate")
 progress.pack(pady=10)
+# Gestaltung der Benutzer Oberfläche mit Tkinter
 
 window.mainloop()
