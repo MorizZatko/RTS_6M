@@ -1,0 +1,61 @@
+import os
+import shutil
+import datetime
+
+def show_stats(alle, erfolg, fehler,zeit):
+    print(f"\n==========================")
+    print(f"Zusammenfassung vom {zeit}")
+    print(f"Alle Dateien: {alle}")
+    print(f"Erfolgreich: {erfolg}")
+    print(f"Fehlgeschlagen: {fehler}")
+    print(f"==========================\n")
+
+def take_ext(file_name):
+    if "." in file_name:
+        return file_name.split(".")[-1].lower()
+    else:
+        return "Ohne Endung"
+
+path_input = input("Zu sortierenden Pfad eingeben: ")    # Benutzer wird aufgefordert den zu sortierenden Pfad einzugeben
+target_dir = path_input.replace('"', '')    # mögliche "" die durch Windows beim Kopieren entstehen, löschen. 
+
+file_list = os.listdir(target_dir)      # alle Dateien werden in der Variable file_list als Liste definiert
+blacklist = ["File_organizer.py", "Desktop.ini", ".DS_Store"]  # Variable blacklist wird als Liste definiert und enthält Dateien die vom Programm nicht verändert werden dürfen
+file_count = 0      # Variable file_count wird zu beginn mit Integer 0 definiert
+file_count_true = 0     # Variable file_count_true wird zu beginn mit Integer 0 definiert
+file_count_false = 0        # Variable file_count_false wird zu beginn mit Integer 0 definiert
+start_time = datetime.datetime.now()
+
+for file in file_list:      # In dieser iterationsschleife wird für jeden Dateinamen der Liste folgende Schleifen abgearbeitet
+    full_path = os.path.join(target_dir, file)      # Die Pfade aus der Liste target_dir werden mit dem Dateinamen file zusammengefügt und als String in der Variable full_path definiert
+    
+    if os.path.isfile(full_path):       # Wenn sich in dem String full_path Dateien/Pfade befinden werden folgende Schleifen ausgeführt
+        file_count += 1
+        if file in blacklist or file.endswith(".exe"):       # Wenn der Dateiname sich in der Liste Blacklist oder mit .exe endet, führe folgenden Code aus
+            continue    # Der Befehl continue beendet den durchgang der Schleife und überspringt somit die Datei
+
+        try:  
+            ext = take_ext(file)
+
+            subfolder = os.path.join(target_dir, ext)
+            os.makedirs(subfolder, exist_ok=True)
+
+            new_filepath = os.path.join(subfolder, file)   # Variable new_filepath wird definiert durch zusammenfügen vom Pfad des neuen Ordners und dem Dateiname
+            shutil.move(full_path, new_filepath)
+            
+            file_count_true += 1     # file_count wird um 1 erhöht bei jeder erfolgreich verschobenen Datei
+
+        except Exception as e: 
+            print(f"\033[31m FEHLER! Die Datei {file}: {e} konnte nicht verschoben werden...\033[0m")
+            file_count_false += 1       # file_count_false wird bei jeder Fehlgeschlagenen Datei um 1 erhöht
+
+end_time = datetime.datetime.now()
+time_string = end_time.strftime("%d.%m.%Y um %H:%M:%S Uhr")
+show_stats(file_count, file_count_true, file_count_false, time_string)
+
+with open("File_Organizer.txt", "a", encoding="utf-8") as log:
+    log.write(f"\n---Sortierung am {time_string}---\n")
+    log.write(f"Erfolgreich: {file_count_true} | Fehlgeschlagen: {file_count_false}\n")
+    log.write("----------------------------------------------\n")
+
+input("\nDrücke Enter um das Programm zu beenden...")
