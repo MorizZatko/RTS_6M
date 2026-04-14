@@ -1,3 +1,13 @@
+"""
+Code dient zur kurzen übung veranschaulichung der String-Methode '.strip()'.
+Benutzer abfrage nach Vor- und Nach-Name und zeigt 3 verschiedene Formatierungen der Eingabe.
+
+Args:
+    None. Die Strings Vor- und Nach-Name werden über den Standard Input gegeben.
+
+Returns:
+    None. Die 3 finalen formatierten Strings werden über den Standard-Ausgabe print() ausgegeben,
+"""
 Vorname = input("Wie lautet dein Vorname?")
 Nachname = input("Wie lautet dein Nachname?")
 
