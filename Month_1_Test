@@ -1,3 +1,10 @@
+"""
+Lernübung: Prüfung der Kenntnisse des ersten Monats.
+
+Diese Datei enthält 4 seperate Aufgaben die durch Kommentierung auskommentiert sind.
+Ziel ist die Veranschaulichung und Überprüfung der grundlegenden Python Themen aus Woche 1-4.
+"""
+
 #Aufgabe 1
 #Ein Benutzer gibt den Wert "12.5" ein (als String). Du musst ihn in eine Zahl umwandeln, diesen Wert um 10 erhöhen und das Ergebnis wieder als String speichern.
 #user_input = "12.5"
@@ -31,15 +38,14 @@
 
 #Aufgabe 4
 #Wie würdest du nur herausfinden, ob das Buch verfügbar ist (True/False) UND welche Themenkategorie es hat, ohne den gesamten Code auszugeben?
-book = {
-    "title": "Der Python Guide",
-    "autor": "Mentor McCode",
-    "verfuegbar": True,
-    "kategorie": ["Programmierung", "Wissen"]
-}
+#book = {
+    #"title": "Der Python Guide",
+    #"autor": "Mentor McCode",
+    #"verfuegbar": True,
+    #"kategorie": ["Programmierung", "Wissen"]
+#}
 
-if book ['verfuegbar'] == True:
-    cat = book ['kategorie']
-    tit = book ['title']
-    print(f'Das Buch "{tit}" ist verfügbar und wird in den Kategorien {cat} gelistet.')
-
+#if book ['verfuegbar'] == True:
+    #cat = book ['kategorie']
+    #tit = book ['title']
+    #print(f'Das Buch "{tit}" ist verfügbar und wird in den Kategorien {cat} gelistet.')
