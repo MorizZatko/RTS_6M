@@ -1,3 +1,17 @@
+"""
+Dient zur Pfadnormalisierung (Windows zu Web-Format)
+Aus dem vom Benutzer eingegebenen Pfad (evtl. Windows-Format) wird ein sauberes URL ähnliches Format erstellt.
+ACHTUNG:
+Das Skript geht von einer festen Pfad-Struktur aus! Der Projektname steht immer an der festen Position (Index 4)
+und er restliche Pfad an bestimmten Indizes vor und nach dem Projektnamen.
+
+Args:
+    None. Der Pfad wird über den Standart Input bereitgestellt.
+
+Returns:
+    None. Der finale Pfad wird über das Standard print() ausgegeben.
+"""
+
 user_path = input("Dateipfad:")     # User Input
 
 if user_path.startswith("C:\\"):    # Prüft ob der Input mit C:\ beginnt
