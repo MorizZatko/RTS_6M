@@ -5,6 +5,26 @@ import tkinter as tk
 import sys
 from tkinter import filedialog, messagebox
 
+
+"""
+Modulzweck: Dateiorganisator (Dateitypen)
+
+Beschreibung: Der Code fungiert als grafisch basiertes Werkzeug zum sortieren von Dateien in einem gewählten Verzeichnis.
+Alle Dateien werden nach ihrer jeweiligen Dateiendung in Unterordner innerhalb des Quellordners verschoben.
+
+Funktion:
+1. Startet die GUI und fragt den Benutzer nach dem Quellordner.
+2. Ignoriert alle Dateien aus der 'blacklist'.
+3. Verschiebt jede verbliebene Datei in ein Unterordner der nach der Dateiendung benannt ist (z.B. '.jpg' oder '.pdf')
+4. Protokolliert alle fehlgeschlagenen Verschiebungen in einer seperaten Log-Datei ('Sortierer Fehler-LOG.txt')
+
+Args:
+    None. Der Quellordner wird über die Tkinter-GUI abgefragt
+
+Returns:
+    None. Der Code verändert das Daetisystem und meldet das Ergebnis über ein Pop-up Fenster.
+"""
+
 def take_ext(file_name):
     if "." in file_name:
         return file_name.split(".")[-1].lower()
@@ -54,7 +74,7 @@ for file in file_list:      # In dieser iterationsschleife wird für jeden Datei
 if fail_list:
     log_pfad = os.path.join(target_dir, "Sortierer Fehler-LOG.txt")
     with open(log_pfad, "w", encoding="utf-8") as f:
-        f.write("FOLGENDE DATEIEN KONNTEN NICHT ORTIERT WERDEN:\n\n")
+        f.write("FOLGENDE DATEIEN KONNTEN NICHT SORTIERT WERDEN:\n\n")
         for eintrag in fail_list:
             f.write(eintrag + "\n")
 
