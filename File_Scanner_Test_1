@@ -1,6 +1,22 @@
 import os
 import shutil
 
+""""
+Modulzweck: Versions-Nummer in Dateinamen um 1 erhöhen.
+
+Der Code scannt den vomm Benutzer gegebenen Quellordner nach Dateien,
+die eine Versions-Nummer im Dateinamen haben (z.B. vXxxx.ext).
+Die Datei mit der höchsten Versions-Nummer wird um 1 erhöht und als Kopie mit neuer Versions-Nummer auf dem gleichen Pfad gespeichert.
+Über die Standard-Ausgabe wird die Datei mit der neuen Versions-Nummer ausgegeben sowie ein vergleich zwischen dem original und dem neuen Namen,
+bei erfolgreichen kopier vorgang wird dies auch über die Standard-Ausgabe ausgegeben.
+
+Args:
+    None. Der Notwendige String (Quellortdner Pfad) wird über die Standard-Input Eingabe bereitgestellt.
+
+Returns:
+    None. Die finalen Strings werden über die Standart-Ausgabe print() ausgegeben.
+"""
+
 user_input = input("Bitte den Pfad zum Ordner eingeben: ") # C:\Users\moriz\Desktop\python_test
 real_path = user_input.replace('"', '').strip()     # alle "" werden gelöscht die durchs Windows kopieren entstehen, durch .strip() werden alle leerzeichen am Anfang und am Ende gelöscht
 
@@ -41,7 +57,7 @@ if all_versions: # Wenn die all_versions Liste Daten gespeichert hat bzw True au
 
     if not os.path.exists(new_path):        # Wenn der neue Pfad new_path nicht im angegebenen Pfad existiert soll folgender Code ausgeführt werden
         shutil.copy(old_path, new_path)     # alter Pfad old_path wird zu neuem Pfad new_path kopiert
-        print(f"Update: {old_file} wurd zu {new_file} kopiert!")    # gibt aus wenn die Datei erfolgreich kopiert wurde
+        print(f"Update: {old_file} wurde zu {new_file} kopiert!")    # gibt aus wenn die Datei erfolgreich kopiert wurde
     
 else:   # Wenn die all_versions Liste leer bleibt bzw False ausgibt wird folgender Code ausgeführt
     print("Keine Version zum erhöhen gefunden...")
