@@ -10,9 +10,9 @@ from colorama import init, Fore, Style
 # Import von Datenbanken
 
 """
-Erstellung von globalen Variablen und Listen.
-
-Die Listen "Image_EXT" und "Video_EXT" werden mit Tuplen (Datei-Endungen) gefüllt.
+Globale Initialisierung: Erstellung von globalen Variablen und Listen.
+Die Listen 'Image_EXT' und 'Video_EXT' werden mit Tuplen (Datei-Endungen) gefüllt.
+Dient der Speicherung von Dateityp-Endungen.
 
 Args:
     None.
@@ -29,17 +29,18 @@ Video_EXT = [".mp4", ".mov"]
 
 def create_plan():
     """
-    Erstellt die Globale "plan" Liste, in dem der ausgewählte Ordner gescannt wird 
-    und aus allen Dateien eine Liste mit den wichtigen Metadaten sammelt.
+    Erstellt die Globale 'plan' Liste. Diese wird mit den wichtigen Metadaten 
+    für alle in 'all_files' gelisteten Dateien gefüllt.
 
     Die Funktion durchläuft alle Dateien, erstellt für jede einen vollständigen Pfad
-    und versucht das Aufnahme-Datum der Exif zu ermitteln oder fallback (WindowsDatum) zu bestimmen.
+    und versucht das Aufnahme-Datum der Exif zu ermitteln, falls dies fehlschlägt,
+    wird ein Fallback-Datum verwendet (basierend auf dem letzten Änderungszeitsttempel des Dateisystems).
 
     Args:
-        None. Verlässt sich auf die gobalen Variablen "all_files" (Datei-Liste) und "user_path" (aktuell gewählter Ordner)
+        None. Verlässt sich auf die gobalen Variablen "all_files" (Liste der Dateinamen) und "user_path" (aktuell gewählter Quellordner)
 
     Returns:
-        Keine direkten Rückgabewerte. Funktion ändert die globalen Variablen "plan" und füllt sie mit Tuplen (Datei-Name, Datum, Datei-Endung)
+        Keine direkten Rückgabewerte. Funktion ändert die globalen Variablen "plan" und füllt sie mit Tuplen: (Dateiname, Datum, Dateiendung)
     """
     global plan
     plan = []
@@ -54,15 +55,14 @@ def create_plan():
 
 def get_shooting_date(pic_path):
     """
-    Die Funktion scannt jede Datei im "Pic-Path" nach einer Exif Datei,
-    und extrahiert das Datum. Fallback: Wenn kein Datum in der Exif steht,
-    wird der letzte timestamp von Windows genommen.
+    Die Funktion extrahiert das Aufnahme-Datum aus den Exif-Metadaten der Bilddatei.
+    Fallback: Wenn keine gültigen Exif-Daten gefunden werden, wird der letzte timestamp des Dateisystems genommen (mtime)
 
     Args:
-        "pic_path" ist der vollständige Pfad zur Bild-Datei, deren Datum extrahiert werden soll
+        'pic_path' (str) ist der vollständige Pfad zur Bild-Datei, deren Datum extrahiert werden soll
 
     Returns:
-        None.
+        str: Das formatierte Datum im String 'YYYY-MM-DD'
     """
     try:
         with Image.open(pic_path) as img:
@@ -82,14 +82,15 @@ def get_shooting_date(pic_path):
 
 def select_folder():
     """
-    Funktion fragt Nutzer nach dem Ordner, prüft ob relevante Dateien enthalten sind und zäht diese, gibt die Information über das GUI aus.
-    Fallback: Keine Dateien im Ornder, wird ausgegeben über die GUI.
+    Funktion führt ein Dialog aus in dem der Benutzer seinen Quellordner wählt.
+    Nach der Auswahl werden alle Dateien des Ordners gescannt 
+    und die globalen Variablen 'all_files' und 'user_path' geladen.
 
     Args:
-        None. Funktion nutzt globale Variablen "all_files" und "user_path"
+        None.
 
     Returns:
-        None. Funktion arbeitet eng mit Tkinter zusammen um die Information dem Nutzer zu präsentieren
+        None. Aktualisiert die globalen Variablen 'all_files' und 'user_path' sowie die GUI_Elemente.
     """
     global all_files
     global user_path 
@@ -131,16 +132,16 @@ def select_folder():
 
 def show_stats():
     """
-    Funktion erstellt einer Statistik nach den Kategorien (Bilder, Videos, Andere) mit allen gefunden Dateien und zählt diese. 
-    Fallback: Keine Dateien gefunden, wird über GUI ausgegeben.
+    Funktion generiert eine detaillierte Statistik der im Quellordner gefunden Dateien und zählt diese.
+    Die Funktion führt zuerst 'create_plan()' aus, um die notwendigen Daten zu sammeln.
+    Die Statistik wird nach den Kategorien 'Bilder', 'Videos' und 'andere Dateien' zusammengefasst und wird im GUI ausgegeben. 
+    Fallback: Wenn keine Dateien gefunden im Quellordner gefunden werden, wird dies auch über das GUI ausgegeben.
 
     Args:
-        None. Funktion nutzt globale Variablen "all_files" und "plan" so wie die funktion "create_plan".
+        None. Funktion nutzt globale Variablen 'all_files' und 'user_path'.
 
     Returns:
-        Stats: Die Liste stats speichert die Statistik die erstellt wurde. Die Funktion ist eng mit Tkinter verknüpft 
-        und gibt alle notwendigen Information im GUI aus
-
+        None. Aktualisiert globale Liste 'plan' und gibt Ergebnisse über die GUI aus.
     """
     global all_files
     global plan
@@ -188,20 +189,20 @@ def show_stats():
 
 def start_sorting():
     """
-    Startet den Hauptsortier- und Bewegungs-/Kopierprozess für Bilddaten.
+    Startet den Hauptsortier- und Bewegungs-/Kopierprozess für Bild- & Video-daten.
 
     Dieser Prozess führt folgende Schritte aus:
-    1. Vorab-Prüfung: Stellt sicher, dass ein Quell-Ordner ausgewählt wurde.
-    2. Vorschau: Zeigt dem Nutzer eine Übersicht über die zu findenden Dateitypen (Bilder, Videos, Andere).
-    3. Zielauswahl: Fordert den Nutzer zur Auswahl des Ziel-Root-Ordners auf.
-    4. Durchführung: Durchläuft jede gefundene Datei. Bei gültigen Dateitypen wird das Dateiformat
-       nach dem EXIF-Datum in Unterordnern neu erstellt. Die Datei wird dann entweder kopiert oder verschoben
-       und der Fortschritt wird laufend im GUI angezeigt.
-    5. Abschluss: Erstellt ein finales Protokoll mit allen bearbeiteten Dateinamen.
+    1. Initialprüfung: Stellt sicher, dass ein Quell-Ordner definiert wurde.
+    2. Planung: Ruft 'create_plan()' auf um alle Metadaten zu sammeln.
+    3. Vorschau: Zeigt dem Benutzer die Statistik aller Dateitypen
+    4. Zielauswahl: Fordert den Nutzer zur Auswahl des Ziel-Root-Ordners auf.
+    5. Durchführung: Iteriert durch jede gefundene Datei. Für alle gültigen Dateitypen wird ein Unterordner
+       nach dem EXIF-Datum im Zielordner angelegt. Die Datei wird dann entweder kopiert oder verschoben ('move'/'copy')
+       und der Fortschritt wird laufend aktualisiert im GUI angezeigt.
+    5. Abschluss: Erstellt ein finales Protokoll ('Alle_kopierten_Dateien.txt') mit allen verarbeiteten Dateinamen.
 
     Args:
-        (Diese Funktion ist eng mit dem GUI-Kontext gekoppelt und nutzt globale
-        Variablen wie user_path, plan und sort_mode, um ihren Zustand zu erhalten.)
+        None. Nutz globale Variablen wie 'user_path', 'plan', 'all_files', 'sort_mode'.
 
     Returns:
         None. Die Ergebnisse werden über die GUI (log_area) und Pop-up-Messageboxen ausgegeben.
