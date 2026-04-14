@@ -1,3 +1,14 @@
+"""
+Code dient zur Simulation eines Workflows für die Digitale Projektverwaltung eines Künstlers.
+
+Das Skript fügt folgende Aktionen aus:
+1. Abfrage von Projekt- und Künstler-Namen.
+2. Simuliert die Verwaltung von To-Dos, erweiter und zählt diese.
+3. Berechnet die finale Auflösung (2x) und die gesamt Pixel Anzahl.
+
+Wichtig: Die Variablen 'projekt', 'artist', 'resolution_px', und 'aufgaben'
+werden im Code global definiert und dienen als Simulationskontext.
+"""
 projekt = input("Projektname?")
 artist = input("Name?")
 resolution_px = (1920, 1080)
