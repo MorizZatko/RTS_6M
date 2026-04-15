@@ -26,7 +26,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 ## 1. Versions_Changer
 - **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
 - **Key Features:** Scanns directory for files with a version number to update the number by 1.
-- **Skills Applied:** Python (string modifing and lists)
+- **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
 - **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
