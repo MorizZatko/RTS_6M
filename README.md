@@ -1,10 +1,10 @@
 # RTS_6M / Technical Art & Automation
 Welcome to my central learning repository. 
-This file documents my transition from **professional photography** to **technical art**.
-Using my visual expertise to create intelligent, automated creative pipelines.
+This file documents my transition from **professional photography** to **technical art**,
+by using my visual expertise to create intelligent, automated creative pipelines.
 Focusing on Python automation, Blender, AI-driven workflows and AI-Image/-Texture generation.
 
-## Targets:
+## Goals:
 - **Python:** Developing clean code and modules following the Google Python Style Guide.
 - **Blender:** Building custom tools and add-ons via the Blender API to streamline 3D workflows.
 - **AI:** Using generative AI for high-end texturing, images and procedural asset creation.
@@ -18,24 +18,24 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                  Instead of providing "copy-paste" code, the AI acts as an tutor, 
                  challenging my logic and guiding me towards solutions.
                  This ensures that I understand the code that I commit.
-- **Quality Assurance:** To ensure the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
+- **Quality Assurance:** To meet the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
 
 
 # --- Projects --- #
 
-## 1. Versions_Changer
+## 1. Versions_Changer (Version_Changer_New_2)
 - **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
-- **Key Features:** Scanns directory for files with a version number to update the number by 1.
+- **Key Features:** Scanns internal list of given file paths for files with a version number to update the number by 1.
 - **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
 - **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
-## 2. Tuple-Test (Tuple_Experiment)
-* **Zweck:** Verständnis für Tuples 
-* **Status:** Tuple_Experiment (Aktuell)
-* **Pfad:** RTS_6M/Tuple_Experiment
-* **Evolution:** ---
-* **Nächster Commit:** ---
+## 2. Resolution Scaling (Tuple_Experiment)
+- **Challenge:** First touch with Tuples. Module upscales pixel resolution by a given factor.
+- **Key Features:** Upscales given pixel resolutions by a given factor.
+- **Skills Applied:** Python (Tuples, Function)
+- **Evolution:** None. 
+- **Visual Data:** ![Resolution_Scaling Screenshot](Media_Doc/Resolution_Scaling_Screenshot_01)
 
 ## 3. String-Übung (String-Verschlüsselung)
 * **Zweck:** Teilt den Input in verschiedene Parts auf und fügt sie in einer neuen Reiehnfolge zusammen
