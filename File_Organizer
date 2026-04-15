@@ -2,7 +2,39 @@ import os
 import shutil
 import datetime
 
-def show_stats(alle, erfolg, fehler,zeit):
+"""
+Module: File Organizer (file types)
+Description: This module sorts all files in a selected directory.
+             Every file gets moved into a subfolder in the source directory, the subfolder is named after the file type.
+Function:
+    1. Asks user for the source directory via standard input.
+    2. Ignores all files in 'blacklist'.
+    3. Moves every file into a subfolder named after the filetype (z.B. '.jpg' oder '.pdf')
+    4. Provides a final statistic of the results. 
+    Statistic shows:
+        - Timestamp and Date (datetime)
+        - Total file count (int)
+        - Successfully sorted files (int)
+        - Failed files (int)
+Args:
+    None: Source directory is provided via standard input.
+Returns:
+    None: Module outputs a statistic of the process via standard output.
+"""
+
+def show_stats(alle, erfolg, fehler, zeit):
+    """Displays the final statistic of the sorting process.
+
+    Args:
+        alle (int): total count of all scanned files.
+        erfolg (int): number of all successfully moved files.
+        fehler (int): number of all failed files.
+        zeit (str): Timestamp as a string.
+
+    Returns:
+        None: Outputs via print().
+    
+    """
     print(f"\n==========================")
     print(f"Zusammenfassung vom {zeit}")
     print(f"Alle Dateien: {alle}")
@@ -11,51 +43,57 @@ def show_stats(alle, erfolg, fehler,zeit):
     print(f"==========================\n")
 
 def take_ext(file_name):
+    """Extracts the filetype from the filename.
+
+    Args:
+        file_name (str): Complete filename. 
+    
+    Returns:
+        str: Filetype without dots and lowercased, fallback: 'Ohne Endung'.
+    """
     if "." in file_name:
         return file_name.split(".")[-1].lower()
     else:
         return "Ohne Endung"
-
-path_input = input("Zu sortierenden Pfad eingeben: ")    # Benutzer wird aufgefordert den zu sortierenden Pfad einzugeben
-target_dir = path_input.replace('"', '')    # mögliche "" die durch Windows beim Kopieren entstehen, löschen. 
-
-file_list = os.listdir(target_dir)      # alle Dateien werden in der Variable file_list als Liste definiert
-blacklist = ["File_organizer.py", "Desktop.ini", ".DS_Store"]  # Variable blacklist wird als Liste definiert und enthält Dateien die vom Programm nicht verändert werden dürfen
-file_count = 0      # Variable file_count wird zu beginn mit Integer 0 definiert
-file_count_true = 0     # Variable file_count_true wird zu beginn mit Integer 0 definiert
-file_count_false = 0        # Variable file_count_false wird zu beginn mit Integer 0 definiert
-start_time = datetime.datetime.now()
-
-for file in file_list:      # In dieser iterationsschleife wird für jeden Dateinamen der Liste folgende Schleifen abgearbeitet
-    full_path = os.path.join(target_dir, file)      # Die Pfade aus der Liste target_dir werden mit dem Dateinamen file zusammengefügt und als String in der Variable full_path definiert
     
-    if os.path.isfile(full_path):       # Wenn sich in dem String full_path Dateien/Pfade befinden werden folgende Schleifen ausgeführt
+# --- Main Logic ---
+
+path_input = input("Zu sortierenden Pfad eingeben: ")   # Asks user to select the source directory
+target_dir = path_input.replace('"', '')    # Removes quotes from windows copy process
+file_list = os.listdir(target_dir)  # all files get stored in 'file_list' as a list
+blacklist = ["File_organizer.py", "Desktop.ini", ".DS_Store"]  # 'blacklist' stores every file that should not be moved
+file_count = 0  # Initialize file counter with int 0
+file_count_true = 0 # Initialize successfully moved counter with int 0
+file_count_false = 0   # Initialize failed files counter with int 0
+start_time = datetime.datetime.now()    # starts timer for the sorting process
+
+for file in file_list:  # Iterate through every filename in the list
+    full_path = os.path.join(target_dir, file)  # Combines the source path with the filename into a full path string
+    
+    if os.path.isfile(full_path):   # Checks if 'full_path' matches a file in the directory
         file_count += 1
-        if file in blacklist or file.endswith(".exe"):       # Wenn der Dateiname sich in der Liste Blacklist oder mit .exe endet, führe folgenden Code aus
-            continue    # Der Befehl continue beendet den durchgang der Schleife und überspringt somit die Datei
+        if file in blacklist or file.endswith(".exe"):  # Skips all files listed in 'blacklist' or files that end with .exe
+            continue    # Continue to next file
 
         try:  
-            ext = take_ext(file)
-
-            subfolder = os.path.join(target_dir, ext)
-            os.makedirs(subfolder, exist_ok=True)
-
-            new_filepath = os.path.join(subfolder, file)   # Variable new_filepath wird definiert durch zusammenfügen vom Pfad des neuen Ordners und dem Dateiname
-            shutil.move(full_path, new_filepath)
-            
-            file_count_true += 1     # file_count wird um 1 erhöht bei jeder erfolgreich verschobenen Datei
+            ext = take_ext(file)    
+            subfolder = os.path.join(target_dir, ext)   # Combines modified source path with the file type
+            os.makedirs(subfolder, exist_ok=True)   # Generates the new subfolder (only if it doesnt already exists)
+            new_filepath = os.path.join(subfolder, file)   # Combines subfolder path and filename to the new file path
+            shutil.move(full_path, new_filepath)    # Moves file from source directory to the new subfolder
+            file_count_true += 1     # Counts every successfully moved file
 
         except Exception as e: 
-            print(f"\033[31m FEHLER! Die Datei {file}: {e} konnte nicht verschoben werden...\033[0m")
-            file_count_false += 1       # file_count_false wird bei jeder Fehlgeschlagenen Datei um 1 erhöht
+            print(f"\033[31m FEHLER! Die Datei {file}: {e} konnte nicht verschoben werden...\033[0m")   # Fallback with error message
+            file_count_false += 1   # Counts every failed file
 
-end_time = datetime.datetime.now()
-time_string = end_time.strftime("%d.%m.%Y um %H:%M:%S Uhr")
-show_stats(file_count, file_count_true, file_count_false, time_string)
+end_time = datetime.datetime.now()      # Stops timer and save it to 'end_time' variable
+time_string = end_time.strftime("%d.%m.%Y um %H:%M:%S Uhr")     # Formating the time string
+show_stats(file_count, file_count_true, file_count_false, time_string)  # Displays the final statistic
 
-with open("File_Organizer.txt", "a", encoding="utf-8") as log:
+with open("File_Organizer.txt", "a", encoding="utf-8") as log:  # Creates a log file as 'File_Organizer.txt'
     log.write(f"\n---Sortierung am {time_string}---\n")
     log.write(f"Erfolgreich: {file_count_true} | Fehlgeschlagen: {file_count_false}\n")
     log.write("----------------------------------------------\n")
 
-input("\nDrücke Enter um das Programm zu beenden...")
+input("\nDrücke Enter um das Programm zu beenden...")   # User info to close this module
