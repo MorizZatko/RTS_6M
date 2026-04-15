@@ -1,6 +1,6 @@
 """
 Module: String Reordering
-Description: This Tool reorders the user input through string manipulation.
+Description: This tool reorders the user input through string manipulation.
 Function: 
     1. Asks user for a string to reorder.
     2. Splits the string in three parts (start, last, mid) and extracts the total length of the input.
