@@ -14,16 +14,16 @@ Focusing on Python automation, Blender, AI-driven workflows and AI-Image/-Textur
 Every project in this repository is **developed by myself**.
 To consistently improve my skills through the process, I use AI as a pedagogical tool:
 
-- **Guided Learning:** I use qwen 3.5:9b with custom character-prompts as an python mentor. 
+- **Guided Learning:** I use qwen 3.5:9b and Gemma4 with custom character-prompts as an python mentor. 
                  Instead of providing "copy-paste" code, the AI acts as an tutor, 
                  challenging my logic and guiding me towards solutions.
                  This ensures that I understand the code that I commit.
 - **Quality Assurance:** To ensure the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
 
 
-### --- Projects --- ###
+# --- Projects --- #
 
-# 1. Versions_Changer
+## 1. Versions_Changer
 - **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
 - **Key Features:** Scanns directory for files with a version number to update the number by 1.
 - **Skills Applied:** Python (string modifing and lists)
