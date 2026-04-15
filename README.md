@@ -28,7 +28,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Key Features:** Scanns directory for files with a version number to update the number by 1.
 - **Skills Applied:** Python (string modifing and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
-- **Visual Data:** ![Version_Changer Screenshot](Media_Doc\Version_Changer_Screenshot_01.png)
+- **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
 ## 2. Tuple-Test (Tuple_Experiment)
 * **Zweck:** Verständnis für Tuples 
