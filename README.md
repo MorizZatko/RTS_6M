@@ -35,7 +35,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Key Features:** Upscales given pixel resolutions by a given factor.
 - **Skills Applied:** Python (Tuples, Function)
 - **Evolution:** None. 
-- **Visual Data:** ![Resolution_Scaling Screenshot](Media_Doc/Resolution_Scaling_Screenshot_01)
+- **Visual Data:** ![Resolution_Scaling Screenshot](Media_Doc/Resolution_Scaling_Screenshot_01.png)
 
 ## 3. String-Übung (String-Verschlüsselung)
 * **Zweck:** Teilt den Input in verschiedene Parts auf und fügt sie in einer neuen Reiehnfolge zusammen
