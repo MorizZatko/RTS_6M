@@ -1,14 +1,34 @@
-# RTS_6M
-Dokumentation meines Fortschritts in den Bereichen, Python, APIs, Blender und AI.
+### RTS_6M / Technical Art & Automation
+Welcome to my central learning repository. 
+This file documents my transition from **professional photography** to **technical art**.
+Using my visual expertise to create intelligent, automated creative pipelines.
+Focusing on Python automation, Blender, AI-driven workflows and AI-Image/-Texture generation.
 
-Dieses Repository enthält verschiedene Projekte, die ich getrennt entwickelt habe.
+### Targets:
+- **Python:** Developing clean code and modules following the Google Python Style Guide.
+- **Blender:** Building custom tools and add-ons via the Blender API to streamline 3D workflows.
+- **AI:** Using generative AI for high-end texturing, images and procedural asset creation.
+- **Career Goal:** Relocating to Switzerland as a Technical Artist
 
-## 1. Verions-Management (Version_Changer)
-*  **Zweck:** Erhöht die Versions-Nummer von Assets um 1, für Änderungsnachweise
-*  **Status:** Version_Changer_New_2 (Aktuell)
-* **Pfad:** RTS_6M/Version_Changer_New_2
-* **Evolution:** Das Projekt wurde durch die Versionen "Vision_Changer" und "Vision_Changer_New" entwickelt und optimiert
-* **Nächster Commit:** ---
+### Learning Strategy:
+Every project in this repository is **developed by myself**.
+To consistently improve my skills through the process, I use AI as a pedagogical tool:
+
+**Guided Learning:** I use qwen 3.5:9b with custom character-prompts as an python mentor. 
+                 Instead of providing "copy-paste" code, the AI acts as an tutor, 
+                 challenging my logic and guiding me towards solutions.
+                 This ensures that I understand the code that I commit.
+**Quality Assurance:** To ensure the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
+
+
+### --- Projects --- ###
+
+# 1. Versions_Changer
+- **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
+- **Key Features:** Scanns directory for files with a version number to update the number by 1.
+- **Skills Applied:** Python (string modifing and lists)
+- **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
+- **Visual Data:** ![Version_Changer Screenshot](C:\Users\moriz\Desktop\RTS\Media Doc\Version_Changer_Screenshot_01.png)
 
 ## 2. Tuple-Test (Tuple_Experiment)
 * **Zweck:** Verständnis für Tuples 
@@ -67,8 +87,8 @@ Dieses Repository enthält verschiedene Projekte, die ich getrennt entwickelt ha
 * **Nächster Commit:** ---
 
 ## 10. Sortiert Bilder/Videos in Unterornder nach Datum (Picture_Date_Organizer.py)
-* **Zweck:** Ein Programm mit GUI das den Nutzer nach einem Ornder frägt, diesen scannt, anzeigt wie viele Dateien von welcher Kategorie gefunden wurden.
-            Nutzer wird nach Ziel-Ordner gefragt und kann entscheiden ob die Daten kopiert oder verschoben werden sollen. Während des Prozesses wird ein Ladebalken angezeigt und die verbleibende Zeit wird berechnet. Log Datei wird geschrieben und der Nutzer bekommt eine Meldung wie viele Dateien von welcher Kategorie erfolgreich verschiben wurden.
+* **Zweck:** Ein Programm mit GUI das den Nutzer nach einem Ordner frägt, diesen scannt, anzeigt wie viele Dateien von welcher Kategorie gefunden wurden.
+            Nutzer wird nach Ziel-Ordner gefragt und kann entscheiden ob die Daten kopiert oder verschoben werden sollen. Während des Prozesses wird ein Ladebalken angezeigt und die verbleibende Zeit wird berechnet. Log Datei wird geschrieben und der Nutzer bekommt eine Meldung wie viele Dateien von welcher Kategorie erfolgreich verschoben wurden.
 * **Status:** Picture_Date_Organizer.py (Aktuell)
 * **Pfad:** RTS_6M/Picture_Date_Organizer.py
 * **Evolution:** ---
