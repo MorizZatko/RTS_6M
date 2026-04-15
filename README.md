@@ -25,14 +25,14 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 
 ## 1. Versions_Changer (File: Version_Changer_New_2)
 - **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
-- **Key Features:** Scanns internal list of given file paths for files with a version number to update the number by 1.
+- **Key Features:** Scanns internal list of given file paths for files with a version number and updates the number by 1.
 - **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
 - **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
 ## 2. Resolution Scaling (File: Tuple_Experiment)
-- **Challenge:** First touch with Tuples. Module upscales pixel resolution by a given factor.
-- **Key Features:** Upscales given pixel resolutions by a given factor.
+- **Challenge:** First touch with Tuples. Module scales pixel resolution by a given factor.
+- **Key Features:** scales given pixel resolutions by a given factor.
 - **Skills Applied:** Python (Tuples, Function)
 - **Evolution:** None. 
 - **Visual Data:** ![Resolution_Scaling Screenshot](Media_Doc/Resolution_Scaling_Screenshot_01.png)
