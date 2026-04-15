@@ -14,11 +14,11 @@ Focusing on Python automation, Blender, AI-driven workflows and AI-Image/-Textur
 Every project in this repository is **developed by myself**.
 To consistently improve my skills through the process, I use AI as a pedagogical tool:
 
-**Guided Learning:** I use qwen 3.5:9b with custom character-prompts as an python mentor. 
+- **Guided Learning:** I use qwen 3.5:9b with custom character-prompts as an python mentor. 
                  Instead of providing "copy-paste" code, the AI acts as an tutor, 
                  challenging my logic and guiding me towards solutions.
                  This ensures that I understand the code that I commit.
-**Quality Assurance:** To ensure the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
+- **Quality Assurance:** To ensure the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
 
 
 ### --- Projects --- ###
@@ -28,7 +28,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Key Features:** Scanns directory for files with a version number to update the number by 1.
 - **Skills Applied:** Python (string modifing and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
-- **Visual Data:** ![Version_Changer Screenshot](C:\Users\moriz\Desktop\RTS\Media Doc\Version_Changer_Screenshot_01.png)
+- **Visual Data:** ![Version_Changer Screenshot](Media_Doc\Version_Changer_Screenshot_01.png)
 
 ## 2. Tuple-Test (Tuple_Experiment)
 * **Zweck:** Verständnis für Tuples 
