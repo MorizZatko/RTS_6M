@@ -1,10 +1,25 @@
+"""
+Module: String Reordering
+Description: This Tool reorders the user input through string manipulation.
+Function: 
+    1. Asks user for a string to reorder.
+    2. Splits the string in three parts (start, last, mid) and extracts the total length of the input.
+    3. All three strings are added together in a reverse order with the length as a integer at the end.
+
+Args:
+    None: Source string is provided by user via standard input
+Returns:
+    None: Tool outputs the reordered string via standard output
+"""
+
 word = input("Zu verschlüsselndes Wort:") 
 
-start = word[0]     # Extrahiert dem ersten Index
-last = word[-1]     # Extrahiert dem letzten Index
-mid = word[1:-1]    # Extrahiert alle Indexs zwischen dem ersten un dem letzten
-length = len(word)  # Extrahiert die Anzahl der Indexs als Zahl
+start = word[0]     
+last = word[-1]     
+mid = word[1:-1]    
+length = len(word) 
 
-new_word = last + mid + start + str(length) # fügt alle Indexe in einer neuen Reihenfolge zusammen
+# --- Output ---
+new_word = last + mid + start + str(length)
 
 print(f"{new_word}")
