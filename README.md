@@ -45,13 +45,14 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![String_Reordering Screenshot](Media_Doc/String_Reordering_Screenshot_01.png)
 
-* **Zweck:** Teilt den Input in verschiedene Parts auf und fügt sie in einer neuen Reiehnfolge zusammen
-* **Status:** String_Verschlüsselung (Aktuell)
-* **Pfad:** RTS_6M/String_Verschlüsselung
-* **Evolution:** ---
-* **Nächster Commit:** ---
+## 4. Storage Calculator (File: Speicherplatz_Rechner)
+- **Challenge:** Given only the number of frames and the size per frame we dont know the needed storage space for the rendering, this tool calculates it for you.
+- **Key Features:** Asks user for total frames and the megabyte size per frame to calculate the needed storage space. Outputs the final string with two decimal places in gigabyte. 
+                    Important: Tool accept only float and integer inputs NO STRINGS!
+- **Skills Applied:** Python (Integers, Floats, simple math)
+- **Evolution:** None. 
+- **Visual Data:** ![Storage_Calculator Screenshot](Media_Doc/Storage_Calculator_Screenshot_01.png)
 
-## 4. Speicherplatz kalkulieren (Speicherplatz_Rechner)
 * **Zweck:** Berechnet anhand von anzahl der Frames und MB größe der Frames den benötigten Speicherplatz aus
 * **Status:** Speicherplatz_Rechner (Aktuell)
 * **Pfad:** RTS_6M/Speicherplatz_Rechner
@@ -59,6 +60,12 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 * **Nächster Commit:** ---
 
 ## 5. Render Zeit kalkulieren (Renderzeit_Kalkulator)
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Berechnet anhand der Frames und Zeit pro Frame wie lang welches Projekt rendert (Minuten), gibt die jeweilige Zeit aus und das Projekt das am länsgetn dauert
 * **Status:** Renderzeit_Kalkulator (Aktuell)
 * **Pfad:** RTS_6M/Renderzeit_Kalkulator
@@ -66,6 +73,12 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 * **Nächster Commit:** ---
 
 ## 6. Asset Pfad Checker (Rendering_Queue_Checker)
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Prüft ob der Pfad mit C: beginnt und ändert ihn in ein Linux Pfad
 * **Status:** Rendering_Queue_Checker (Aktuell)
 * **Pfad:** RTS_6m/Rendering_Queue_Checker
@@ -73,6 +86,12 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 * **Nächster Commit:** ---
 
 ## 7. Render Preisvergleich (Render_Preis_Vergleich)
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Vergleicht Lokale Strom und Zeit kosten mit externen Kosten und Zeit angaben
 * **Status:** Render_Preis_Vergleich (Aktuell)
 * **Pfad:** RTS_6M/Render_Preis_Vergleich
@@ -80,6 +99,12 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 * **Nächster Commit:** ---
 
 ## 8. Elemente Zähler (Programm_Liste)
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Zeigt Elemente einer Liste und die insgesamte Anzahl an
 * **Status:** Programm_Liste (Aktuell)
 * **Pfad:** RTS_6M/Programm_Liste
@@ -87,16 +112,33 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 * **Nächster Commit:** ---
 
 ## 9. Projekt Aufgabe/Info Anzeige (pipeline.py)
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Fragt Projekt Name und Künstler Name ab, zeigt offene To-Do´s, fügt eins hinzu, zeigt die Anzahl aller To-Do´s. Skaliert die Auflösung und rechnet die Gesamte Pixel Anzahl
 * **Status:** pipeline.py (Aktuell)
 * **Pfad:** RTS_6M/pipeline.py
 * **Evolution:** ---
 * **Nächster Commit:** ---
 
-## 10. Sortiert Bilder/Videos in Unterornder nach Datum (Picture_Date_Organizer.py)
+## 10. Sortiert Bilder/Videos in Unterornder nach Datum (Picture_Date_Organizer.py)- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
+
 * **Zweck:** Ein Programm mit GUI das den Nutzer nach einem Ordner frägt, diesen scannt, anzeigt wie viele Dateien von welcher Kategorie gefunden wurden.
             Nutzer wird nach Ziel-Ordner gefragt und kann entscheiden ob die Daten kopiert oder verschoben werden sollen. Während des Prozesses wird ein Ladebalken angezeigt und die verbleibende Zeit wird berechnet. Log Datei wird geschrieben und der Nutzer bekommt eine Meldung wie viele Dateien von welcher Kategorie erfolgreich verschoben wurden.
 * **Status:** Picture_Date_Organizer.py (Aktuell)
 * **Pfad:** RTS_6M/Picture_Date_Organizer.py
 * **Evolution:** ---
 * **Nächster Commit:** ---
+
+- **Challenge:** 
+- **Key Features:** 
+- **Skills Applied:** 
+- **Evolution:** None. 
+- **Visual Data:** ![](Media_Doc/)
