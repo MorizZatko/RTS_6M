@@ -3,6 +3,7 @@
 # Build Artefakte, die nur auf deinem Rechner entstehen
 /build/
 /venv/ 
+/dist/
 
 # Lokale Konfigurationsdateien
 .DS_Store

@@ -3,6 +3,7 @@ liste = {
     "projekt_2": [{"name": "Drifters", "programm": "Blender", "status": "in arbeit", "polygon_count": 1600}],
     "projekt_3": [{"name": "House", "programm": "Photoshop", "status": "fertig", "polygon_count": 0}]
 }
+# definiert die Daten in einer Liste
 
 def high_poly(liste):
     high_poly_count = 0
@@ -11,10 +12,11 @@ def high_poly(liste):
             if poly_items["polygon_count"] > 10000:
                 high_poly_count += 1
     return high_poly_count
-
+# Funktion um die anzahl der High-Poly Objekte zu zählen
 
 liste ["projekt_3"][0]["status"] = "in arbeit"
 liste ["projekt_2"][0]["status"] = "fertig"
+# Ändert zwei Elemente der Liste
 
 blender_list = [
       item['name']
@@ -22,11 +24,10 @@ blender_list = [
       for item in items
       if item['status'] == "fertig" and item['programm'] != "Photoshop"
 ]
+# Scannt die Liste nach Projekten die NICHT mit Blender erstellt werden
 
 project_count = len(liste)
-
-
-
+# definiert die insgesamte Projekt anzahl der Liste 
 
 def in_progress(liste):
     assets_in_progress = 0
@@ -35,9 +36,9 @@ def in_progress(liste):
             if item['status'] == "in arbeit":
                 assets_in_progress += 1
     return(assets_in_progress)
+# Funktion um die anzahl der Projekte zu zählen die noch "in Arbeit" sind
 
 assets_in_progress = in_progress(liste)
-
 
 high_polygon_count = sum(
     1
@@ -45,14 +46,16 @@ high_polygon_count = sum(
     for item in items
     if item.get("polygon_count", 0) > 10000
 )
+# Zählt die Anzahl der High-Poly Objekte
 
 report = ""
 progress_report = assets_in_progress
 high_poly_report = high_polygon_count
 all_projects_reprot = project_count
 blender_report = len(blender_list)
+# Neue Variablen zuweisung für den Report Ausgabe String
 
 print(f"Insgesamt sind {all_projects_reprot} Projekte geladen.\n{progress_report} Projekte sind noch in arbeit.\n{high_poly_report} Projekte sind High-Poly Objekte.\nInsgesamt sind {blender_report} von {all_projects_reprot} Projekte Blender Daten.")
-
+# Gibt das Ergebnis des Scanns aus
 
 
