@@ -23,21 +23,28 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 
 # --- Projects --- #
 
-## 1. Versions_Changer (Version_Changer_New_2)
+## 1. Versions_Changer (File: Version_Changer_New_2)
 - **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
 - **Key Features:** Scanns internal list of given file paths for files with a version number to update the number by 1.
 - **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
 - **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
-## 2. Resolution Scaling (Tuple_Experiment)
+## 2. Resolution Scaling (File: Tuple_Experiment)
 - **Challenge:** First touch with Tuples. Module upscales pixel resolution by a given factor.
 - **Key Features:** Upscales given pixel resolutions by a given factor.
 - **Skills Applied:** Python (Tuples, Function)
 - **Evolution:** None. 
 - **Visual Data:** ![Resolution_Scaling Screenshot](Media_Doc/Resolution_Scaling_Screenshot_01.png)
 
-## 3. String-Übung (String-Verschlüsselung)
+## 3. String Reordering (File: String_Verschlüsselung)
+- **Challenge:** Reorders the user input
+- **Key Features:** Asks user for input, reorders the input via string manipulation and adds them in a reverse order together,
+                    with the total number of all letters at the end. Outputs the new string. 
+- **Skills Applied:** Python (string manipulation, len() operator)
+- **Evolution:** None. 
+- **Visual Data:** ![String_Reordering Screenshot](Media_Doc/String_Reordering_Screenshot_01.png)
+
 * **Zweck:** Teilt den Input in verschiedene Parts auf und fügt sie in einer neuen Reiehnfolge zusammen
 * **Status:** String_Verschlüsselung (Aktuell)
 * **Pfad:** RTS_6M/String_Verschlüsselung
