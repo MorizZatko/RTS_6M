@@ -1,16 +1,16 @@
-### RTS_6M / Technical Art & Automation
+# RTS_6M / Technical Art & Automation
 Welcome to my central learning repository. 
 This file documents my transition from **professional photography** to **technical art**.
 Using my visual expertise to create intelligent, automated creative pipelines.
 Focusing on Python automation, Blender, AI-driven workflows and AI-Image/-Texture generation.
 
-### Targets:
+## Targets:
 - **Python:** Developing clean code and modules following the Google Python Style Guide.
 - **Blender:** Building custom tools and add-ons via the Blender API to streamline 3D workflows.
 - **AI:** Using generative AI for high-end texturing, images and procedural asset creation.
 - **Career Goal:** Relocating to Switzerland as a Technical Artist
 
-### Learning Strategy:
+## Learning Strategy:
 Every project in this repository is **developed by myself**.
 To consistently improve my skills through the process, I use AI as a pedagogical tool:
 
