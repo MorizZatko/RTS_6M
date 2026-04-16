@@ -1,5 +1,5 @@
 """
-Module: Rendering Time Calculator
+Module: Rendering Queue Calculator
 Description: This tool calculates the needed rendering time for three projects by the count of the frames and the time per frame.
 Function:
     1. The three given projects are located in a nested list with name, frames and time per frame.
