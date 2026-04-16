@@ -59,7 +59,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                     Calculate and outputs four strings with the time results in seconds, minutes and hours aswell as the final rendering costs for the project. 
 - **Skills Applied:** Python (Integers, Floats, simple math)
 - **Evolution:** None. 
-- **Visual Data:** ![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenhsot_01.png)
+- **Visual Data:** ![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenshot_01.png)
 
 ## 6. Asset Pfad Checker (Rendering_Queue_Checker)
 - **Challenge:** 
