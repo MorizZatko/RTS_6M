@@ -1,6 +1,6 @@
 """
 Module: Rendering Path Checker
-Description: This Module modifies windows file paths starting with C: to linux paths and converts the second last element to full cpas. Ignores all paths starting with D:.
+Description: This Module modifies windows file paths starting with C: to linux paths and converts the second last element to full caps. Ignores all paths starting with D:.
 Function:
     1. Extracts all three paths out of the given path list.
     2. Proofs if the path starts with C: and replaces it with /mnt/...
