@@ -61,18 +61,12 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenshot_01.png)
 
-## 6. Asset Pfad Checker (Rendering_Queue_Checker)
-- **Challenge:** 
-- **Key Features:** 
-- **Skills Applied:** 
+## 6. Rendering Queue Calculator (File: Rendering_Queue)
+- **Challenge:** Module calculates the expected rendering time for three given projects by total number of frames and time per frame in seconds.
+- **Key Features:** Calculates the needed rendering time for three projects from a nested list. Outputs all results and the project with to longest rendering time.
+- **Skills Applied:** Python (Nested-lists, Floats, simple math)
 - **Evolution:** None. 
-- **Visual Data:** ![](Media_Doc/)
-
-* **Zweck:** Prüft ob der Pfad mit C: beginnt und ändert ihn in ein Linux Pfad
-* **Status:** Rendering_Queue_Checker (Aktuell)
-* **Pfad:** RTS_6m/Rendering_Queue_Checker
-* **Evolution:** ---
-* **Nächster Commit:** ---
+- **Visual Data:** ![Rendering_Queue_Calculator Screenshot](Media_Doc/Rendering_Queue_Calculator_Screenshot_01.png)
 
 ## 7. Render Preisvergleich (Render_Preis_Vergleich)
 - **Challenge:** 
