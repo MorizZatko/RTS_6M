@@ -68,12 +68,13 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![Rendering_Queue_Calculator Screenshot](Media_Doc/Rendering_Queue_Calculator_Screenshot_01.png)
 
-## 7. Render Preisvergleich (Render_Preis_Vergleich)
-- **Challenge:** 
-- **Key Features:** 
-- **Skills Applied:** 
+## 7. Rendering Path Checker (Rendering_Path_Checker)
+- **Challenge:** For most AIs and Cloud-Systems are linux paths the industry standard. This tool formats windows path to linux, while ignoring backup-paths starting with D:
+                 The second last Element of the path formats to full caps. Outputs the new path or fallback message.
+- **Key Features:** Formats windows paths starting with C: to linux, ignores paths starting with D:, formats second last element of the path to full caps.
+- **Skills Applied:** Python (list, if/else, upper())
 - **Evolution:** None. 
-- **Visual Data:** ![](Media_Doc/)
+- **Visual Data:** ![Rendering_Path_Checker Screenshot](Media_Doc/Rendering_Path_Checker_Screenshot_01.png)
 
 * **Zweck:** Vergleicht Lokale Strom und Zeit kosten mit externen Kosten und Zeit angaben
 * **Status:** Render_Preis_Vergleich (Aktuell)
