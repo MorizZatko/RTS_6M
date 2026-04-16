@@ -53,24 +53,13 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![Storage_Calculator Screenshot](Media_Doc/Storage_Calculator_Screenshot_01.png)
 
-* **Zweck:** Berechnet anhand von anzahl der Frames und MB größe der Frames den benötigten Speicherplatz aus
-* **Status:** Speicherplatz_Rechner (Aktuell)
-* **Pfad:** RTS_6M/Speicherplatz_Rechner
-* **Evolution:** ---
-* **Nächster Commit:** ---
-
-## 5. Render Zeit kalkulieren (Renderzeit_Kalkulator)
-- **Challenge:** 
-- **Key Features:** 
-- **Skills Applied:** 
+## 5. Rendering Time/Price Calculator (Renderzeit_Kalkulator)
+- **Challenge:** This Module calculates the needed rendering time and price and outputs it in several time units aswell as the rendering costs in euro.
+- **Key Features:** Asks user for the project name, total number of frames, time in seconds per frame, and the rendering price per minute in euro.
+                    Calculate and outputs four strings with the time results in seconds, minutes and hours aswell as the final rendering costs for the project. 
+- **Skills Applied:** Python (Integers, Floats, simple math)
 - **Evolution:** None. 
-- **Visual Data:** ![](Media_Doc/)
-
-* **Zweck:** Berechnet anhand der Frames und Zeit pro Frame wie lang welches Projekt rendert (Minuten), gibt die jeweilige Zeit aus und das Projekt das am länsgetn dauert
-* **Status:** Renderzeit_Kalkulator (Aktuell)
-* **Pfad:** RTS_6M/Renderzeit_Kalkulator
-* **Evolution:** Das Projekt wurde durch die Version "Smart_Rendering_Queue" entwickelt und optimiert
-* **Nächster Commit:** ---
+- **Visual Data:** ![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenhsot_01.png)
 
 ## 6. Asset Pfad Checker (Rendering_Queue_Checker)
 - **Challenge:** 
