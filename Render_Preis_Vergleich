@@ -1,8 +1,21 @@
+"""
+Module: Rendering Price Comparison
+Description: Module comparse local rendering costs with cloud rendering costs.
+Function:
+    1. Asks user for local costs per hour and rendering time in hours, same for the cloud costs and time.
+    2. Calculates local and cloud costs aswell as the difference between those.
+    3. Checks wich option costs less and wich is faster.
+    4. Outputs a string chart to compare cost, time and difference. 
+       Additional it outputs two recommendation strings for the fastest and the cheapest option. 
+"""
+
+
 local_price = float(input("Lokale Stromkosten pro Stunde:").replace(",", "."))
 local_time = float(input("Lokale Render Zeit in Stunden:").replace(",", "."))
 cloud_price = float(input("Cloud Stromkosten pro Stunde:").replace(",", "."))
 cloud_time = float(input("Cloud Render Zeit in Stunden:").replace(",", "."))
 
+# --- Calculate logic ---
 local_cost = local_price * local_time
 cloud_cost = cloud_price * cloud_time
 dif_cost = abs(cloud_cost - local_cost)
@@ -18,6 +31,7 @@ if local_time < cloud_time:
 else: 
     tip_time = "Cloud"
 
+# --- Output ---
 print("+" + "-"*53 + "+")
 print(f"| {"Anbieter":<15} | {"Kosten in €":>15} | {"Zeit in h":>15} |")
 print("+" + "-"*53 + "+")
