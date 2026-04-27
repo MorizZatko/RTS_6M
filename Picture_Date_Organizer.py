@@ -10,37 +10,45 @@ from colorama import init, Fore, Style
 # Import von Datenbanken
 
 """
-Globale Initialisierung: Erstellung von globalen Variablen und Listen.
-Die Listen 'Image_EXT' und 'Video_EXT' werden mit Tuplen (Datei-Endungen) gefüllt.
-Dient der Speicherung von Dateityp-Endungen.
-
+Modul: Picture and Video files organizer
+Description: Scanns all files in a directory provided by the user. Outputs via GUI a short statistic message of all found files.
+       Asks user for target directory and sorts all video and picture files in new subfolders named after the exif date. Shows expected time to move aswell as an loading beam.
+       Outputs via GUI a statistic with all moved and failed files.
+Function: 
+    1. Open GUI surfcae
+    2. Asks user for directory to sort
+    3. Scanns all files in provided diretory
+    4. Outputs via messagebox a short statistic of all found files
+    5. Asks User for target directory
+    6. User can choose if all files should be moved or copied
+    7. After user starts sorting process, GUI shows loading beam aswell as the expected time.
+    8. Outputs every moved file via GUI Log and a short statistic with all moved and failed files.
 Args:
-    None.
+    None. Sorting path via GUI Input, move or copy choice aswell via GUI.
 
 Returns:
-    None.
+    None. Scann statistic via messagebox, every moved file via GUI Log and a short statistic with all moved and failed files after the process via messagebox
 """
+
+# Initialize global lists and a variable
 user_path = ""
 all_files = []
 plan = []
 Image_EXT = [".jpg", ".jpeg", ".png", ".arw", ".raw", ".tiff", ".tif", ".psd", ".psb", ".nef" ]
 Video_EXT = [".mp4", ".mov"]
 
-
+# Function to fills global list 'plan' with full path of all files wiht exif oder meta-data
 def create_plan():
-    """
-    Erstellt die Globale 'plan' Liste. Diese wird mit den wichtigen Metadaten 
-    für alle in 'all_files' gelisteten Dateien gefüllt.
+    """ Initialize global function 'create_plan' and fills global list 'plan' it with exif/metadata.
 
-    Die Funktion durchläuft alle Dateien, erstellt für jede einen vollständigen Pfad
-    und versucht das Aufnahme-Datum der Exif zu ermitteln, falls dies fehlschlägt,
-    wird ein Fallback-Datum verwendet (basierend auf dem letzten Änderungszeitsttempel des Dateisystems).
+    Function scanns all files and generates for every file a full length path.
+    Trys to get the exif data, if no exif got found it takes the fallback data of the last windows timestamp.
 
     Args:
-        None. Verlässt sich auf die gobalen Variablen "all_files" (Liste der Dateinamen) und "user_path" (aktuell gewählter Quellordner)
+        None. Uses global list 'all_files' where all file names are listed and 'user_path' (directory path to sort)
 
     Returns:
-        Keine direkten Rückgabewerte. Funktion ändert die globalen Variablen "plan" und füllt sie mit Tuplen: (Dateiname, Datum, Dateiendung)
+        None. Function provides global list 'plan' with following tuples: (Filename, Date, Data-Type)
     """
     global plan
     plan = []
@@ -51,18 +59,16 @@ def create_plan():
         if not date:
             date = "Unbekanntes_Datum"
         plan.append((f, date, ext))
-# Funktion um eine Liste zu erstellen mit allen Dateien die ein Datum in der Exif haben
 
+# Function to get shooting-date/timestamp from exif or meta-data
 def get_shooting_date(pic_path):
-    """
-    Die Funktion extrahiert das Aufnahme-Datum aus den Exif-Metadaten der Bilddatei.
-    Fallback: Wenn keine gültigen Exif-Daten gefunden werden, wird der letzte timestamp des Dateisystems genommen (mtime)
-
+    """ Initialize 'get_shooting_date' function to extract shooting date and time from exif data or latest timestamp of windows (mtime). 
+    
     Args:
-        'pic_path' (str) ist der vollständige Pfad zur Bild-Datei, deren Datum extrahiert werden soll
+        'pic_path' (str): Full path of file to extract timestamp from.
 
     Returns:
-        str: Das formatierte Datum im String 'YYYY-MM-DD'
+        str: Outputs formated timestamp (YYY-MM-DD)
     """
     try:
         with Image.open(pic_path) as img:
@@ -77,11 +83,14 @@ def get_shooting_date(pic_path):
      
     ts = os.path.getmtime(pic_path)
     return datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
-# Funktion um das Datum der Datei auszulesen, falls keine Exif vorhanden ist, wird das Windows Datum genommen
+
     
 
 def select_folder():
-    """
+    """ Initialize function to ask user for diretory path to sort and scanns it.
+
+    Function asks user for directory path to sort, scanns all files and outputs 
+
     Funktion führt ein Dialog aus in dem der Benutzer seinen Quellordner wählt.
     Nach der Auswahl werden alle Dateien des Ordners gescannt 
     und die globalen Variablen 'all_files' und 'user_path' geladen.
