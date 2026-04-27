@@ -1,3 +1,9 @@
+"""Picture and Video files organizer.
+
+This module moves or copies picture and video files into subfolders named after their creation date or the latest timestamp.
+It provides a Tkinter interface for user interaction.
+"""
+
 import os
 import time
 import shutil
@@ -7,48 +13,18 @@ from tkinter import ttk, filedialog, messagebox
 from PIL import Image
 from PIL.ExifTags import TAGS
 from colorama import init, Fore, Style
-# Import von Datenbanken
 
-"""
-Modul: Picture and Video files organizer
-Description: Scanns all files in a directory provided by the user. Outputs via GUI a short statistic message of all found files.
-       Asks user for target directory and sorts all video and picture files in new subfolders named after the exif date. Shows expected time to move aswell as an loading beam.
-       Outputs via GUI a statistic with all moved and failed files.
-Function: 
-    1. Open GUI surfcae
-    2. Asks user for directory to sort
-    3. Scanns all files in provided diretory
-    4. Outputs via messagebox a short statistic of all found files
-    5. Asks User for target directory
-    6. User can choose if all files should be moved or copied
-    7. After user starts sorting process, GUI shows loading beam aswell as the expected time.
-    8. Outputs every moved file via GUI Log and a short statistic with all moved and failed files.
-Args:
-    None. Sorting path via GUI Input, move or copy choice aswell via GUI.
-
-Returns:
-    None. Scann statistic via messagebox, every moved file via GUI Log and a short statistic with all moved and failed files after the process via messagebox
-"""
-
-# Initialize global lists and a variable
 user_path = ""
 all_files = []
 plan = []
 Image_EXT = [".jpg", ".jpeg", ".png", ".arw", ".raw", ".tiff", ".tif", ".psd", ".psb", ".nef" ]
 Video_EXT = [".mp4", ".mov"]
 
-# Function to fills global list 'plan' with full path of all files wiht exif oder meta-data
 def create_plan():
-    """ Initialize global function 'create_plan' and fills global list 'plan' it with exif/metadata.
+    """Provide exif/metadata for the global list 'plan'.
 
-    Function scanns all files and generates for every file a full length path.
-    Trys to get the exif data, if no exif got found it takes the fallback data of the last windows timestamp.
-
-    Args:
-        None. Uses global list 'all_files' where all file names are listed and 'user_path' (directory path to sort)
-
-    Returns:
-        None. Function provides global list 'plan' with following tuples: (Filename, Date, Data-Type)
+    Scans all files and generates for every file a full path.
+    Extracts the timestamp out of the exif file or uses the latest windows timestamp if no exif file exists. 
     """
     global plan
     plan = []
@@ -60,15 +36,14 @@ def create_plan():
             date = "Unbekanntes_Datum"
         plan.append((f, date, ext))
 
-# Function to get shooting-date/timestamp from exif or meta-data
 def get_shooting_date(pic_path):
-    """ Initialize 'get_shooting_date' function to extract shooting date and time from exif data or latest timestamp of windows (mtime). 
+    """Extract shooting date and time from exif or latest timestamp of windows (mtime). 
     
     Args:
-        'pic_path' (str): Full path of file to extract timestamp from.
+        pic_path: String containing the full path of the file.
 
     Returns:
-        str: Outputs formated timestamp (YYY-MM-DD)
+        A string containing the formated timestamp (YYY-MM-DD).
     """
     try:
         with Image.open(pic_path) as img:
@@ -84,22 +59,11 @@ def get_shooting_date(pic_path):
     ts = os.path.getmtime(pic_path)
     return datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
 
-    
-
 def select_folder():
-    """ Initialize function to ask user for diretory path to sort and scanns it.
+    """Request a diretory path from user and scans it for files.
 
-    Function asks user for directory path to sort, scanns all files and outputs 
-
-    Funktion führt ein Dialog aus in dem der Benutzer seinen Quellordner wählt.
-    Nach der Auswahl werden alle Dateien des Ordners gescannt 
-    und die globalen Variablen 'all_files' und 'user_path' geladen.
-
-    Args:
-        None.
-
-    Returns:
-        None. Aktualisiert die globalen Variablen 'all_files' und 'user_path' sowie die GUI_Elemente.
+    Updates the global 'file_list' and 'user_path' on the selected directory.
+    Outputs progress and statistics to the GUI log.
     """
     global all_files
     global user_path 
@@ -137,20 +101,12 @@ def select_folder():
     log_area.insert(tk.END, "Bereit zum Sortieren, klicke auf 'Start'.\n")
     log_area.insert(tk.END, "-" * 40)
     log_area.see(tk.END)
-# Funktion zum Scannen des angegeben Ordners, prüft ob der Ornder existiert und wie viele Dateien enthalten sind
 
 def show_stats():
-    """
-    Funktion generiert eine detaillierte Statistik der im Quellordner gefunden Dateien und zählt diese.
-    Die Funktion führt zuerst 'create_plan()' aus, um die notwendigen Daten zu sammeln.
-    Die Statistik wird nach den Kategorien 'Bilder', 'Videos' und 'andere Dateien' zusammengefasst und wird im GUI ausgegeben. 
-    Fallback: Wenn keine Dateien gefunden im Quellordner gefunden werden, wird dies auch über das GUI ausgegeben.
+    """Generate and display statistics of all found files.
 
-    Args:
-        None. Funktion nutzt globale Variablen 'all_files' und 'user_path'.
-
-    Returns:
-        None. Aktualisiert globale Liste 'plan' und gibt Ergebnisse über die GUI aus.
+    Triggers the function 'create_plan' and categorizes all files into pictures (Bilder), videos (Videos) and other files (andere Dateien),
+    for a statistic summary displayed via messagebox.
     """
     global all_files
     global plan
@@ -186,35 +142,18 @@ def show_stats():
         else:
             stats["Andere Dateien"] += 1
             
-
-    
         log_area.insert(tk.END, f"Gefundene Dateien: {f}\n")
         log_area.see(tk.END)
         window.update()
 
     log_area.insert(tk.END, "-" * 40 + "\n")
     log_area.see(tk.END)
-# Funktion zeigt an wie viele Dateien im Ornder "Bilder", "Videos" oder "andere Dateien" sind
 
 def start_sorting():
-    """
-    Startet den Hauptsortier- und Bewegungs-/Kopierprozess für Bild- & Video-daten.
-
-    Dieser Prozess führt folgende Schritte aus:
-    1. Initialprüfung: Stellt sicher, dass ein Quell-Ordner definiert wurde.
-    2. Planung: Ruft 'create_plan()' auf um alle Metadaten zu sammeln.
-    3. Vorschau: Zeigt dem Benutzer die Statistik aller Dateitypen
-    4. Zielauswahl: Fordert den Nutzer zur Auswahl des Ziel-Root-Ordners auf.
-    5. Durchführung: Iteriert durch jede gefundene Datei. Für alle gültigen Dateitypen wird ein Unterordner
-       nach dem EXIF-Datum im Zielordner angelegt. Die Datei wird dann entweder kopiert oder verschoben ('move'/'copy')
-       und der Fortschritt wird laufend aktualisiert im GUI angezeigt.
-    5. Abschluss: Erstellt ein finales Protokoll ('Alle_kopierten_Dateien.txt') mit allen verarbeiteten Dateinamen.
-
-    Args:
-        None. Nutz globale Variablen wie 'user_path', 'plan', 'all_files', 'sort_mode'.
-
-    Returns:
-        None. Die Ergebnisse werden über die GUI (log_area) und Pop-up-Messageboxen ausgegeben.
+    """Starts move or copy process of all picture and video files.
+    
+    Asks user for target directory and tracks the counts of all copied/moved and failed files.
+    Generates a protocol text file and displays a summary statistic via GUI log and messagebox.
     """
     global user_path
     global full_path
@@ -335,21 +274,21 @@ def start_sorting():
                         f"Videos: {stats['Videos']}\n"
                         f"Andere Dateien: {stats['Andere Dateien']}\n"
                         f"{processed_count} Dateien wurden kopiert/verschoben!")
-# Funktion die nach dem Ziel-Ordner frägt und dann alle Bild und Video Daten kopiert oder verschiebt, ein log-file erstellt und ausgibt wie viele Daten bewegt wurden    
-    
 
-
+### GUI block ###
+# Define colors  
 bg_color = "#2e2e2e"
 fg_color = "#ffffff"
 accent_color = "#ff8c00"
 text_bg = "#1e1e1e"
-# Farb definiton
 
+# Initialize main window
 window = tk.Tk()
 window.title("Foto_Datum_Sortierer_V2")
 window.geometry("800x650")
 window.configure(bg=bg_color)
 
+# Initialize GUI Buttons and Log-area
 label_status = tk.Label(window, text="Zu sortierenden Ordner auswählen:", 
                         bg=bg_color, fg=accent_color, font=("Arial", 10, "bold"), pady=10)
 label_status.pack()
@@ -394,6 +333,6 @@ btn_quit.pack(side=tk.RIGHT, padx=5)
 
 progress = ttk.Progressbar(window, orient="horizontal", length=400, mode="determinate")
 progress.pack(pady=10)
-# Gestaltung der Benutzer Oberfläche mit Tkinter
+
 
 window.mainloop()
