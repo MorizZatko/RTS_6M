@@ -12,13 +12,13 @@ liste = {
 # definiert die Daten in einer Liste
 
 def high_poly(liste):
-    """Tracks count of projects with polygon count over 1000.
+    """Tracks count of projects with polygon count over 10000.
 
     Args:
-        liste: Proofs provided list.
+        liste: A list containing project names as keys and a for each project a list of asset details as values.
 
     Returns:
-        high_poly_count with updated number of files.
+        An Integer representing the total count of high-poly assets.
     
     """
     high_poly_count = 0
@@ -45,13 +45,13 @@ project_count = len(liste)
 
 
 def in_progress(liste):
-    """Tracks count of projects that are in work.
+    """Tracks count of projects that are currently in progress.
     
     Args:
-        liste: Proofs provided list.
+        liste: A list containing project names as keys and a for each project a list of asset details as values.
 
     Returns:
-        assets_in_progress with number of files.
+        An Integer representing the total count of assets with the status 'in arbeit'.
     """
     assets_in_progress = 0
     for items in liste.values():
@@ -76,6 +76,3 @@ all_projects_reprot = project_count
 blender_report = len(blender_list)
 
 print(f"Insgesamt sind {all_projects_reprot} Projekte geladen.\n{progress_report} Projekte sind noch in arbeit.\n{high_poly_report} Projekte sind High-Poly Objekte.\nInsgesamt sind {blender_report} von {all_projects_reprot} Projekte Blender Daten.")
-
-
-
