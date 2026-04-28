@@ -37,7 +37,7 @@ def create_plan():
         plan.append((f, date, ext))
 
 def get_shooting_date(pic_path):
-    """Extract shooting date and time from exif or latest system timestamp.
+    """Extract shooting date and time from exif or the latest system timestamp as fallback.
     
     Args:
         pic_path: String containing the full path of the file.
