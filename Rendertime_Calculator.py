@@ -1,6 +1,6 @@
 """Redering Time/Price Calculator.
 
-This Module calculates the needed rendering time and price by values provided via standard user input.
+This module calculates the needed rendering time and price by values provided via standard user input.
 Output needed time in in seconds, minutes and hours aswell as the total price for the rendering.
 """
 
