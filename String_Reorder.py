@@ -1,25 +1,20 @@
-"""
-Module: String Reordering
-Description: This tool reorders the user input through string manipulation.
-Function: 
-    1. Asks user for a string to reorder.
-    2. Splits the string in three parts (start, last, mid) and extracts the total length of the input.
-    3. All three strings are added together in a reverse order with the length as a integer at the end.
+"""String Reordering.
 
-Args:
-    None: Source string is provided by user via standard input
-Returns:
-    None: Tool outputs the reordered string via standard output
+This tool reorders a user string input through string manipulation,
+by swapping first and last element and adding the total length to the end.
+Input and output via standard terminal
 """
-
+# User input
 word = input("Zu verschlüsselndes Wort:") 
 
+# LOGIC BLOCK
 start = word[0]     
 last = word[-1]     
 mid = word[1:-1]    
 length = len(word) 
 
-# --- Output ---
+# Generates new reordered string
 new_word = last + mid + start + str(length)
 
+# Output new string
 print(f"{new_word}")
