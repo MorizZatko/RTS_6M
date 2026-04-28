@@ -1,17 +1,16 @@
-"""
-Lernübung: Prüfung der Kenntnisse des ersten Monats.
+"""Test Month 1.
 
-Diese Datei enthält 4 seperate Aufgaben die durch Kommentierung auskommentiert sind.
-Ziel ist die Veranschaulichung und Überprüfung der grundlegenden Python Themen aus Woche 1-4.
+This file contains 4 seperate tasks to test the python basics from week 1-4.
+Every task is commented out to prevent logic problems.
 """
 
-#Aufgabe 1
+'''Task 1.'''
 #Ein Benutzer gibt den Wert "12.5" ein (als String). Du musst ihn in eine Zahl umwandeln, diesen Wert um 10 erhöhen und das Ergebnis wieder als String speichern.
 #user_input = "12.5"
 #input_int = float(user_input) + 10
 #print(f"{str(input_int)}")
 
-#Aufgabe 2
+'''Task 2.'''
 #Gib folgende Liste: ["Python", "ist", "fantastisch", "zu", "lernen"] Erstelle einen einzigen String, der lautet: "Python ist fantastisch zu lernen."
 #user_input2 = ["Python", "ist", "fantastisch", "zu", "lernen"]
 #word_1 = user_input2[0].upper()
@@ -19,11 +18,11 @@ Ziel ist die Veranschaulichung und Überprüfung der grundlegenden Python Themen
 #output_str = f"{word_1} {' '.join(word_r)}."
 #print(output_str)
 
-#Aufgabe 3
+'''Task 3.'''
 #Schreibe ein kleines Programm, das mit einem while-Loop läuft. Es soll den Benutzer viermal nach einem Passwort fragen. Wenn das Passwort korrekt ist, gibt es "Erfolg!". 
 #Wenn er nach 4 Versuchen immer noch falsch liegt, gibt es "Zugriff verweigert!".
 #count = 0
-#max_count = 3
+#max_count = 4
 #while count < max_count:
     #ask_user = input("Passwort: ")
     #if ask_user == "3333":
@@ -36,7 +35,7 @@ Ziel ist die Veranschaulichung und Überprüfung der grundlegenden Python Themen
    #print("\n--- LIMIT ERREICHT ---\n")
     #print("Passwort wurde zu oft falsch eingegeben...")
 
-#Aufgabe 4
+'''Task 4.'''
 #Wie würdest du nur herausfinden, ob das Buch verfügbar ist (True/False) UND welche Themenkategorie es hat, ohne den gesamten Code auszugeben?
 #book = {
     #"title": "Der Python Guide",
