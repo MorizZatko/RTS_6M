@@ -1,6 +1,6 @@
 """Asset tracker for nested list.
 
-This Modul iterates thruth nested list, checks different attributes to display a summary string.
+This Modul iterates through a hardcoded nested dictionary, checks different attributes to display a summary string.
 """
 
 
@@ -9,13 +9,13 @@ liste = {
     "projekt_2": [{"name": "Drifters", "programm": "Blender", "status": "in arbeit", "polygon_count": 1600}],
     "projekt_3": [{"name": "House", "programm": "Photoshop", "status": "fertig", "polygon_count": 0}]
 }
-# definiert die Daten in einer Liste
+
 
 def high_poly(liste):
     """Tracks count of projects with polygon count over 10000.
 
     Args:
-        liste: A list containing project names as keys and a for each project a list of asset details as values.
+        liste: A dictionary containing project names as keys and a for each project a list of asset details as values.
 
     Returns:
         An Integer representing the total count of high-poly assets.
@@ -28,11 +28,11 @@ def high_poly(liste):
                 high_poly_count += 1
     return high_poly_count
 
-# edit status of two projects
+# Edit status of two projects
 liste ["projekt_3"][0]["status"] = "in arbeit"
 liste ["projekt_2"][0]["status"] = "fertig"
 
-
+# Filters all assets that are no 'Photoshop' file and with status 'fertig'
 blender_list = [
       item['name']
       for items in liste.values()
@@ -40,7 +40,7 @@ blender_list = [
       if item['status'] == "fertig" and item['programm'] != "Photoshop"
 ]
 
-
+# Total count of all projects
 project_count = len(liste)
 
 
@@ -48,7 +48,7 @@ def in_progress(liste):
     """Tracks count of projects that are currently in progress.
     
     Args:
-        liste: A list containing project names as keys and a for each project a list of asset details as values.
+        liste: A dictionary containing project names as keys and a for each project a list of asset details as values.
 
     Returns:
         An Integer representing the total count of assets with the status 'in arbeit'.
@@ -60,6 +60,7 @@ def in_progress(liste):
                 assets_in_progress += 1
     return(assets_in_progress)
 
+# Total count of all projects in progress
 assets_in_progress = in_progress(liste)
 
 high_polygon_count = sum(
@@ -69,10 +70,12 @@ high_polygon_count = sum(
     if item.get("polygon_count", 0) > 10000
 )
 
+# Update strings
 report = ""
 progress_report = assets_in_progress
 high_poly_report = high_polygon_count
 all_projects_reprot = project_count
 blender_report = len(blender_list)
 
+# Output string
 print(f"Insgesamt sind {all_projects_reprot} Projekte geladen.\n{progress_report} Projekte sind noch in arbeit.\n{high_poly_report} Projekte sind High-Poly Objekte.\nInsgesamt sind {blender_report} von {all_projects_reprot} Projekte Blender Daten.")
