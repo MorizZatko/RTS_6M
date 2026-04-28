@@ -18,13 +18,13 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                  Instead of providing "copy-paste" code, the AI acts as an tutor, 
                  challenging my logic and guiding me towards solutions.
                  This ensures that I understand the code that I commit.
-- **Quality Assurance:** To meet the industry-leading standards, I use AI for logic verification and to check my documentation (following the Google Python Style Guide).
+- **Quality Assurance:** To meet the industry-leading standards, I use AI and pydocstyle for logic verification and to check my documentation (following the Google Python Style Guide).
 
 
 # --- Projects --- #
 
 ## 1. Versions Changer (File: Version_Changer_New_2.py)
-- **Challenge:** To manual update the version number of every file is time consuming and can lead to human errors especially by hundrets of files.
+- **Challenge:** To manually update the version number of every file is time consuming and can lead to human errors especially by hundreds of files.
 - **Key Features:** Scanns internal list of given file paths for files with a version number and updates the number by 1.
 - **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
@@ -53,18 +53,18 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![Rendering_Queue_Calculator Screenshot](Media_Doc/Rendering_Queue_Calculator_Screenshot_01.png)
 
-## 6. Rendering Time And Price Comparison (File: Rendering_local_vs_cloud.py)
-- **Challenge:** To decide if the project should be rendered local oder off an cloud service, we need to compare costs and needed time.
+## 5. Rendering Time And Price Comparison (File: Rendering_local_vs_cloud.py)
+- **Challenge:** To decide if the project should be rendered local or off an cloud service, we need to compare costs and needed time.
 - **Key Features:** Asks user for local rendering time in hours and costs per hour, same for the cloud option.
                     Calculates the cost and the difference between local and cloud. Outputs a string chart to compare the results,
-                    aswell as two strings with a recommendation for the fastest and the cheapest option.
+                    as well as two strings with a recommendation for the fastest and the cheapest option.
 - **Skills Applied:** Python (if/else, print string charts)
 - **Evolution:** None. 
 - **Visual Data:** ![Rendering_Price_Comparison Screenshot](Media_Doc/Rendering_Price_Comparison_Screenshot_01.png)
 
-## 7. Picture And Video Files Organizer (File: Picture_Date_Organizer.py) 
+## 6. Picture And Video Files Organizer (File: Picture_Date_Organizer.py) 
 - **Challenge:** To sort directories with media files from different dates is time consuming and can lead to human errors.
-- **Key Features:** Graphic interface, asks user for path to sort, user can decide wether data is copied or moved. Requests target path,
+- **Key Features:** Graphic interface, asks user for path to sort, user can decide whether data is copied or moved. Requests target path,
                     generates protocol as text file and outputs informations via GUI log and messagebox.
 - **Skills Applied:** Python (Functions, Tkinter, mtime, Pillow, Colorama)
 - **Evolution:** Foto_Datum_Sortierer_V1.py
@@ -74,7 +74,7 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                    ![Picture_Date_Organizer Screenshots 4](Media_Doc/Picture_Date_Organizer_Screenshot_04.png)
                    ![Picture_Date_Organizer Screenshots 5](Media_Doc/Picture_Date_Organizer_Screenshot_05.png)
 
-## 8. Asset Tracker For Nested List (File: Asset_Tracker.py)
+## 7. Asset Tracker For Nested List (File: Asset_Tracker.py)
 - **Challenge:** Fast summary of different aspects from several projects.
 - **Key Features:** Iterates through the hardcoded nested dictionary, checks different attributes to display a summary string.
 - **Skills Applied:** Python (Functions, Args, Strings)
