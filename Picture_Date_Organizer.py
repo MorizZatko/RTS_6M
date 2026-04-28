@@ -24,7 +24,7 @@ def create_plan():
     """Provide exif/metadata for the global list 'plan'.
 
     Scans all files and generates for every file a full path.
-    Extracts the timestamp out of the exif file or uses the latest windows timestamp if no exif file exists. 
+    Extracts the timestamp out of the exif file or uses the latest system timestamp if no exif file exists. 
     """
     global plan
     plan = []
@@ -37,13 +37,16 @@ def create_plan():
         plan.append((f, date, ext))
 
 def get_shooting_date(pic_path):
-    """Extract shooting date and time from exif or latest timestamp of windows.
+    """Extract shooting date and time from exif or latest system timestamp.
     
     Args:
         pic_path: String containing the full path of the file.
 
     Returns:
         A string containing the formated timestamp (YYY-MM-DD).
+
+    Raises:
+        Ignores all files without EXIF data or system timestamp.
     """
     try:
         with Image.open(pic_path) as img:
@@ -62,7 +65,7 @@ def get_shooting_date(pic_path):
 def select_folder():
     """Request a diretory path from user and scans it for files.
 
-    Updates the global 'file_list' and 'user_path' on the selected directory.
+    Updates the global 'all_files' and 'user_path' based on the selected directory.
     Outputs progress and statistics to the GUI log.
     """
     global all_files
@@ -275,7 +278,7 @@ def start_sorting():
                         f"Andere Dateien: {stats['Andere Dateien']}\n"
                         f"{processed_count} Dateien wurden kopiert/verschoben!")
 
-### GUI block ###
+# GUI BLOCK
 # Define colors  
 bg_color = "#2e2e2e"
 fg_color = "#ffffff"
