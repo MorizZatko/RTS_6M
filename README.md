@@ -81,6 +81,15 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Evolution:** None. 
 - **Visual Data:** ![Asset_Tracker Screenshot](Media_Doc/Asset_Tracker_Screenshot_01.png)
 
+## 8. Point-Cloud cleaner (File: Point_Cloud_Cleaner.py)
+- **Challenge:** Cleaning a text-file and converting it to a numpy array with text-file output.
+- **Key Features:** Scans text-file and proofs if no text (string) or number in range 100 to -100 are included, exports a clean numpy array text-file.
+- **Skills Applied:** Python (Numpy, Data-I/O)
+- **Evolution:** None. 
+- **Visual Data:** ![Point_Cloud_Cleaner Screenshot 1](Media_Doc/Point_Cloud_Cleaner_Screenshot_01.png)
+                   ![Point_Cloud_Cleaner Screenshot 2](Media_Doc/Point_Cloud_Cleaner_Screenshot_02.png)
+                   ![Point_Cloud_Cleaner Screenshot 3](Media_Doc/Point_Cloud_Cleaner_Screenshot_03.png)
+                   
 # --- IN WORK ---
 - **Challenge:** 
 - **Key Features:** 
