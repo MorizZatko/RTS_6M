@@ -86,10 +86,11 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Key Features:** Scans text-file and proofs if no text (string) or number in range 100 to -100 are included, exports a clean numpy array text-file.
 - **Skills Applied:** Python (Numpy, Data-I/O)
 - **Evolution:** None. 
-- **Visual Data:** ![Point_Cloud_Cleaner Screenshot 1](Media_Doc/Point_Cloud_Cleaner_Screenshot_01.png)
+- **Visual Data:** 
+                   ![Point_Cloud_Cleaner Screenshot 1](Media_Doc/Point_Cloud_Cleaner_Screenshot_01.png)
                    ![Point_Cloud_Cleaner Screenshot 2](Media_Doc/Point_Cloud_Cleaner_Screenshot_02.png)
                    ![Point_Cloud_Cleaner Screenshot 3](Media_Doc/Point_Cloud_Cleaner_Screenshot_03.png)
-                   
+
 # --- IN WORK ---
 - **Challenge:** 
 - **Key Features:** 
