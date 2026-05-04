@@ -10,7 +10,7 @@ values = []
 clean_values = []
 
 # Import
-with open('raw_points_bad.txt') as file:
+with open('raw_points_good.txt') as file:
     lines = file.readlines()
     for line in lines:
         try:
