@@ -28,7 +28,8 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Key Features:** Scanns internal list of given file paths for files with a version number and updates the number by 1.
 - **Skills Applied:** Python (string manipulation and lists)
 - **Evolution:** Version_Changer -> Version_Changer_New -> Version_Changer_New_2
-- **Visual Data:** ![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
+- **Visual Data:** <br>
+![Version_Changer Screenshot](Media_Doc/Version_Changer_Screenshot_01.png)
 
 ## 2. String Reordering (File: String_Reorder.py)
 - **Challenge:** Reorders a string user input
@@ -36,7 +37,8 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                     with the total number of all letters at the end. Outputs the new string. 
 - **Skills Applied:** Python (string manipulation, len() operator)
 - **Evolution:** None. 
-- **Visual Data:** ![String_Reordering Screenshot](Media_Doc/String_Reordering_Screenshot_01.png)
+- **Visual Data:** <br>
+![String_Reordering Screenshot](Media_Doc/String_Reordering_Screenshot_01.png)
 
 ## 3. Rendering Time/Price Calculator (Rendertime_Calculator.py)
 - **Challenge:** This Module calculates the needed rendering time and price and outputs it in several time units aswell as the rendering costs in euro.
@@ -44,14 +46,16 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                     Calculate and outputs four strings with the time results in seconds, minutes and hours aswell as the final rendering costs for the project. 
 - **Skills Applied:** Python (Integers, Floats, simple math)
 - **Evolution:** None. 
-- **Visual Data:** ![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenshot_01.png)
+- **Visual Data:** <br>
+![Rendering_Time/Price_Calculator Screenshot](Media_Doc/Rendering_TimePrice_Calculator_Screenshot_01.png)
 
 ## 4. Rendering Queue Calculator (File: Rendering_Queue.py)
 - **Challenge:** Module calculates the expected rendering time for three given projects by total number of frames and time per frame in seconds.
 - **Key Features:** Calculates the needed rendering time for three projects from a nested list. Outputs all results and the project with to longest rendering time.
 - **Skills Applied:** Python (Nested-lists, Floats, simple math)
 - **Evolution:** None. 
-- **Visual Data:** ![Rendering_Queue_Calculator Screenshot](Media_Doc/Rendering_Queue_Calculator_Screenshot_01.png)
+- **Visual Data:** <br>
+![Rendering_Queue_Calculator Screenshot](Media_Doc/Rendering_Queue_Calculator_Screenshot_01.png)
 
 ## 5. Rendering Time And Price Comparison (File: Rendering_local_vs_cloud.py)
 - **Challenge:** To decide if the project should be rendered local or off an cloud service, we need to compare costs and needed time.
@@ -60,7 +64,8 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                     as well as two strings with a recommendation for the fastest and the cheapest option.
 - **Skills Applied:** Python (if/else, print string charts)
 - **Evolution:** None. 
-- **Visual Data:** ![Rendering_Price_Comparison Screenshot](Media_Doc/Rendering_Price_Comparison_Screenshot_01.png)
+- **Visual Data:** <br>
+![Rendering_Price_Comparison Screenshot](Media_Doc/Rendering_Price_Comparison_Screenshot_01.png)
 
 ## 6. Picture And Video Files Organizer (File: Picture_Date_Organizer.py) 
 - **Challenge:** To sort directories with media files from different dates is time consuming and can lead to human errors.
@@ -68,28 +73,30 @@ To consistently improve my skills through the process, I use AI as a pedagogical
                     generates protocol as text file and outputs informations via GUI log and messagebox.
 - **Skills Applied:** Python (Functions, Tkinter, mtime, Pillow, Colorama)
 - **Evolution:** Foto_Datum_Sortierer_V1.py
-- **Visual Data:** ![Picture_Date_Organizer Screenshots 1](Media_Doc/Picture_Date_Organizer_Screenshot_01.png)
-                   ![Picture_Date_Organizer Screenshots 2](Media_Doc/Picture_Date_Organizer_Screenshot_02.png)
-                   ![Picture_Date_Organizer Screenshots 3](Media_Doc/Picture_Date_Organizer_Screenshot_03.png)
-                   ![Picture_Date_Organizer Screenshots 4](Media_Doc/Picture_Date_Organizer_Screenshot_04.png)
-                   ![Picture_Date_Organizer Screenshots 5](Media_Doc/Picture_Date_Organizer_Screenshot_05.png)
+- **Visual Data:** <br>
+![Picture_Date_Organizer Screenshots 1](Media_Doc/Picture_Date_Organizer_Screenshot_01.png)<br>
+![Picture_Date_Organizer Screenshots 2](Media_Doc/Picture_Date_Organizer_Screenshot_02.png)<br>
+![Picture_Date_Organizer Screenshots 3](Media_Doc/Picture_Date_Organizer_Screenshot_03.png)<br>
+![Picture_Date_Organizer Screenshots 4](Media_Doc/Picture_Date_Organizer_Screenshot_04.png)<br>
+![Picture_Date_Organizer Screenshots 5](Media_Doc/Picture_Date_Organizer_Screenshot_05.png)
 
 ## 7. Asset Tracker For Nested List (File: Asset_Tracker.py)
 - **Challenge:** Fast summary of different aspects from several projects.
 - **Key Features:** Iterates through the hardcoded nested dictionary, checks different attributes to display a summary string.
 - **Skills Applied:** Python (Functions, Args, Strings)
 - **Evolution:** None. 
-- **Visual Data:** ![Asset_Tracker Screenshot](Media_Doc/Asset_Tracker_Screenshot_01.png)
+- **Visual Data:** <br> 
+![Asset_Tracker Screenshot](Media_Doc/Asset_Tracker_Screenshot_01.png)
 
 ## 8. Point-Cloud cleaner (File: Point_Cloud_Cleaner.py)
 - **Challenge:** Cleaning a text-file and converting it to a numpy array with text-file output.
 - **Key Features:** Scans text-file and proofs if no text (string) or number in range 100 to -100 are included, exports a clean numpy array text-file.
 - **Skills Applied:** Python (Numpy, Data-I/O)
 - **Evolution:** None. 
-- **Visual Data:** 
-                   ![Point_Cloud_Cleaner Screenshot 1](Media_Doc/Point_Cloud_Cleaner_Screenshot_01.png)
-                   ![Point_Cloud_Cleaner Screenshot 2](Media_Doc/Point_Cloud_Cleaner_Screenshot_02.png)
-                   ![Point_Cloud_Cleaner Screenshot 3](Media_Doc/Point_Cloud_Cleaner_Screenshot_03.png)
+- **Visual Data:** <br>
+![Point_Cloud_Cleaner Screenshot 1](Media_Doc/Point_Cloud_Cleaner_Screenshot_01.png)<br>
+![Point_Cloud_Cleaner Screenshot 2](Media_Doc/Point_Cloud_Cleaner_Screenshot_02.png)<br>
+![Point_Cloud_Cleaner Screenshot 3](Media_Doc/Point_Cloud_Cleaner_Screenshot_03.png)
 
 ## 9. Asset Pipeline Validator (File: Asset_Pipeline_Validator.py)        
 - **Challenge:** Find a fast way to extract asset health from raw data.
