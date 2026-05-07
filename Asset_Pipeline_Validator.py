@@ -12,7 +12,7 @@ data = {
     'Size_MB': [600, 40, 120, 30, 800],
     'Version': [1.5, 2.1, 1.1, 2.0, 1.0],
     'Shader': ['PBR_Skin', 'Standard', 'PBR_Rock', 'Standard', 'Water_Shader'],
-    'Extra': [5000, 2048, 1200, 1024, 8000] # Polycount für Mesh, Res für Texture
+    'Extra': [5000, 2048, 1200, 1024, 8000]
 }
 df = pd.DataFrame(data) 
 
