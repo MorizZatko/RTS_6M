@@ -97,8 +97,8 @@ To consistently improve my skills through the process, I use AI as a pedagogical
 - **Skills Applied:** Python (Pandas, OOP, Numpy)
 - **Evolution:** None. 
 - **Visual Data:** 
-![](Media_Doc/Asset_Pipeline_Validator_Screenshot_01.png)
-![](Media_Doc/Asset_Pipeline_Validator_Screenshot_02.png)
+![Asset_Pipeline_Validator Screenshot 1](Media_Doc/Asset_Pipeline_Validator_Screenshot_01.png)
+![Asset_Pipeline_Validator Screenshot 2](Media_Doc/Asset_Pipeline_Validator_Screenshot_02.png)
 
 # --- IN WORK ---
 - **Challenge:** 
