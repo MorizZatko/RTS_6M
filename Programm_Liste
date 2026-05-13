@@ -1,0 +1,4 @@
+tools = ["Blender", "Houdini", "Photoshop"]
+new_tools = input(("Neues Tool:"))
+tools.append(new_tools)
+print(f"Deine Pipline hat jetzt {len(tools)} Tools: {tools}")
