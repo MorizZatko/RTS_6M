@@ -1,6 +1,7 @@
 """Batch Processor.
 
-This module 
+This module convert all JPG images to RGB color mod,
+save them to a new directory, appending "_RGB" to the filename.
 """
 
 import os
