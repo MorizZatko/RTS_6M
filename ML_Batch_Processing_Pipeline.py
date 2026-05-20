@@ -1,8 +1,8 @@
 """ML Batch Processor Pipeline.
 
 This module is designed to produce 512x512 images for ML-Training.
-It check the size, if its over 1000px it crops a square out of the center
-and resize it to 512x512. All processed images get stored in a new subfolder.
+It checks the size, if its over 1000px it crops a square out of the center
+and resizes it to 512x512. All processed images are stored in a new subfolder.
 """
 
 import os
@@ -14,7 +14,7 @@ files = [f for f in os.listdir(folder_path) if f.endswith(('.JPG', '.jpg', '.jpe
 
 
 def center_crop(img):
-    """Function for the square center crop."""
+    """Crops the center square out of the image."""
     width, height = img.size # Take image size by width and height
     size = min(img.size)    # Detect smallest length
     left = (width - size) // 2  # Calculates left offset
@@ -24,7 +24,7 @@ def center_crop(img):
     return img.crop((left, top, right, bottom))
 
 def resize_image(img_crop):
-    """Function to resize the image."""
+    """Resizes the image to 512x512 pixels using LANCZOS resampling."""
     img_resize = img_crop.resize((512, 512), Image.Resampling.LANCZOS)
     return(img_resize)
 
