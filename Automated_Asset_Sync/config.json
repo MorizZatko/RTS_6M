@@ -1,0 +1,11 @@
+{
+    "target_category": "concrete",
+    "resolution": "2k",
+    "download_limit": 5,
+    "base_directory": "Media_Doc/Downloads/PolyHeaven",
+    "maps_to_load": [
+        "Diffuse",
+        "Rough",
+        "nor_gl"
+    ]
+}
