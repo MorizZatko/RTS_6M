@@ -1,0 +1,24 @@
+{
+    "name": "Brushed Concrete 2",
+    "categories": [
+        "man made",
+        "dirty",
+        "concrete",
+        "floor",
+        "plaster-concrete"
+    ],
+    "tags": [
+        "rough",
+        "weathered",
+        "dirty",
+        "discolored",
+        "ground",
+        "stained",
+        "floor"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\brushed_concrete_2\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\brushed_concrete_2\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\brushed_concrete_2\\nor_gl_1k.png"
+    }
+}

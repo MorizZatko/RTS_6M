@@ -1,0 +1,22 @@
+{
+    "name": "Bark Brown 02",
+    "categories": [
+        "wood",
+        "outdoor",
+        "natural",
+        "bark"
+    ],
+    "tags": [
+        "bark",
+        "tree",
+        "forest",
+        "knots",
+        "wooden knots",
+        "tree trunk"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_brown_02\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_brown_02\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_brown_02\\nor_gl_1k.png"
+    }
+}

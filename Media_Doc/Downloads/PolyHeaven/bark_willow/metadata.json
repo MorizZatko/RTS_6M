@@ -1,0 +1,28 @@
+{
+    "name": "Bark Willow",
+    "categories": [
+        "outdoor",
+        "natural",
+        "bark",
+        "wood"
+    ],
+    "tags": [
+        "willow",
+        "bark",
+        "tree",
+        "forest",
+        "nature",
+        "brown",
+        "uneven",
+        "sallow",
+        "osier",
+        "old",
+        "wood",
+        "woodland"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_willow\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_willow\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\bark_willow\\nor_gl_1k.png"
+    }
+}

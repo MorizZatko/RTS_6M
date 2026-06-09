@@ -1,0 +1,25 @@
+{
+    "name": "Wool Boucle",
+    "categories": [
+        "fabric",
+        "wool",
+        "knitted"
+    ],
+    "tags": [
+        "checker",
+        "blanket",
+        "boucle",
+        "wool",
+        "textile ",
+        "woven",
+        "upholstery",
+        "wool boucle",
+        "looped",
+        "looped fibers"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\wool_boucle\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\wool_boucle\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\wool_boucle\\nor_gl_1k.png"
+    }
+}

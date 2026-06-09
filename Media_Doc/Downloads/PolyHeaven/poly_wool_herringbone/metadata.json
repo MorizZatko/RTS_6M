@@ -1,0 +1,22 @@
+{
+    "name": "Poly Wool Herringbone",
+    "categories": [
+        "fabric",
+        "wool"
+    ],
+    "tags": [
+        "grey",
+        "rough",
+        "textile ",
+        "poly wool",
+        "fabric blend",
+        "polyester",
+        "wool",
+        "woven"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\poly_wool_herringbone\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\poly_wool_herringbone\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\poly_wool_herringbone\\nor_gl_1k.png"
+    }
+}

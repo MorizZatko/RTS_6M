@@ -1,0 +1,22 @@
+{
+    "name": "Beam Wall 01",
+    "categories": [
+        "wood",
+        "outdoor",
+        "man made",
+        "wall"
+    ],
+    "tags": [
+        "wall",
+        "stacked",
+        "cabin",
+        "house",
+        "hut",
+        "forest"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\beam_wall_01\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\beam_wall_01\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\beam_wall_01\\nor_gl_1k.png"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Aerial Asphalt 01",
+    "categories": [
+        "asphalt",
+        "outdoor",
+        "floor",
+        "road",
+        "man made",
+        "aerial"
+    ],
+    "tags": [
+        "road",
+        "flat",
+        "cracked"
+    ],
+    "local_files": {
+        "diffuse": "Media_Doc/Downloads/PolyHeaven/aerial_asphalt_01\\diffuse_1k.png",
+        "roughness": "Media_Doc/Downloads/PolyHeaven/aerial_asphalt_01\\rough_1k.png",
+        "normal": "Media_Doc/Downloads/PolyHeaven/aerial_asphalt_01\\nor_gl_1k.png"
+    }
+}

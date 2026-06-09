@@ -1,0 +1,27 @@
+{
+    "name": "Caban",
+    "categories": [
+        "fabric",
+        "wool",
+        "fleece"
+    ],
+    "tags": [
+        "orange",
+        "fluffy",
+        "textile ",
+        "fabric",
+        "fleece",
+        "soft",
+        "fuzzy",
+        "fibrous",
+        "napped",
+        "cozy",
+        "warm",
+        "woolen"
+    ],
+    "local_files": {
+        "diffuse": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\caban\\diffuse_1k.png",
+        "roughness": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\caban\\rough_1k.png",
+        "normal": "c:\\Users\\moriz\\Desktop\\RTS\\python_start\\Media_Doc/Downloads/PolyHeaven\\caban\\nor_gl_1k.png"
+    }
+}
