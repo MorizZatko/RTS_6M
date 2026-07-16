@@ -1,9 +1,9 @@
 """Preprocessing.
 
-This module loads a json file, converts it to a Pandas DataFrame and extracts numerical as well as 
-categorical features to get a feature matrix and a target vector.
-It then simulates object render times based on vertex count with added random noise and outliers,
-to predict these times using random forest regression.
+This module loads a json file, converts it to a Pandas DataFrame,
+extracts and preprocesses numerical and categorical features using
+Scikit-Learn, applies Kmeans clustering as well as PCA reduction.
+Finally, it outputs a sorted chart of the clustered objects.
 """
 
 import json
@@ -11,7 +11,8 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 
 # Load JSON data from file
 with open('scene.json', 'r') as f:
@@ -38,36 +39,26 @@ category_encoded = encoder.fit_transform(X_cat.reshape(-1, 1))
 # Combine numerical and categorical features
 X = np.hstack((X_scaled, category_encoded))
 
-# Simulate render times based on vertex count with added noise
-np.random.seed(42)
-y = (X_num[:, 0] * 0.01) * np.random.uniform(0.8, 1.2, len(X_num))
+# Kmeans clustering
+kmeans = KMeans(n_clusters=3, random_state=42, n_init='auto')
+clusters = kmeans.fit_predict(X)
 
-# Add outliers to challenge the model
-outliers = np.random.choice(len(y), 5, replace=False)
-y[outliers] *= 10
+# Apply PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
 
-# Split data into training and testing sets
-X_train, X_test, y_train, y_test, names_train, names_test = train_test_split(X, y, names, test_size=0.2, random_state=42)
-
-# Initialize and train the random forest regressor model
-model = RandomForestRegressor(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
-predictions = model.predict(X_test)
-
-# Get shape of final feature matrix and target vector
-X_shape = X.shape
-y_shape = y.shape
-y_out = y_test
-prd_out = predictions
+# Get original vertices count
+vertices = X_num[:, 0]
 
 # Create new DataFrame for the results
 results_df = pd.DataFrame({
-    "Object Name": names_test,
-    "Actual Time": y_test,
-    "Predicted Time": predictions
+    "Object Name": names,
+    "Cluster": clusters,
+    "Vertices": vertices
 })
 
+# Sort DataFrame by clusters
+sorted_df = results_df.sort_values(by="Cluster")
+
 # Output dataset dimensions
-print(f"X-Shape: {X_shape}\n Y-Shape: {y_shape}")
-print(f"Y-Test: {y_out}\n Prediction: {prd_out}")
-print(results_df.to_string())
+print(f"{sorted_df.to_string()}")
