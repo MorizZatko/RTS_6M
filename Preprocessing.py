@@ -1,18 +1,20 @@
 """Preprocessing.
 
 This module loads a json file, converts it to a Pandas DataFrame,
-extracts and preprocesses numerical and categorical features using
-Scikit-Learn, applies Kmeans clustering as well as PCA reduction.
-Finally, it outputs a sorted chart of the clustered objects.
+expands vector-based location data, preprocesses numerical and categorical features.
+It then trains a Logistic Regression model to classify objects based on their vertex count
+and predicts the status of a new asset.
 """
 
 import json
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
 
 # Load JSON data from file
 with open('scene.json', 'r') as f:
@@ -21,44 +23,49 @@ with open('scene.json', 'r') as f:
 # Convert to Pandas DataFrame
 df = pd.DataFrame(data['objects'])
 
-# Extract numerical features as NumPy array
-X_num = np.array([[obj['Vertices'], *obj['Location']] for obj in data['objects']])
+# Expand location items
+loc_df = pd.DataFrame(df['Location'].tolist(),
+                      columns=['loc_x', 'loc_y', 'loc_z'])
 
-# Extract categorical features as NumPy array
-X_cat = np.array([obj['Type'] for obj in data['objects']])
-names = np.array([obj['Object Name'] for obj in data['objects']])
+# Fuse dataframe with the expanded location data and drop the original list 
+df_expand = df.drop(columns=['Location']).join(loc_df)
 
-# Standardize numerical features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_num)
+# Define preprocessing for numerical and categorical features 
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), ['loc_x', 'loc_y', 'loc_z', 'Vertices']),
+        ('cat', OneHotEncoder(), ['Type'])
+    ]
+)
 
-# Encode categorical features
-encoder = OneHotEncoder(sparse_output=False)
-category_encoded = encoder.fit_transform(X_cat.reshape(-1, 1))
+# Pipeline logic, combining scaling, encoding, and the logistic regression model
+pipeline = Pipeline(steps=[
+    ('preprocessor', preprocessor),
+    ('classifier', LogisticRegression())
+])
 
-# Combine numerical and categorical features
-X = np.hstack((X_scaled, category_encoded))
+# Create binary target labels based on vertex threshold
+y = np.array([1 if obj['Vertices'] > 500 else 0 for obj in data['objects']])
 
-# Kmeans clustering
-kmeans = KMeans(n_clusters=3, random_state=42, n_init='auto')
-clusters = kmeans.fit_predict(X)
+# Fit the pipeline on the expanded features and generate target labels
+pipeline.fit(df_expand, y)
 
-# Apply PCA
-pca = PCA(n_components=2)
-X_pca = pca.fit_transform(X)
-
-# Get original vertices count
-vertices = X_num[:, 0]
-
-# Create new DataFrame for the results
-results_df = pd.DataFrame({
-    "Object Name": names,
-    "Cluster": clusters,
-    "Vertices": vertices
+# Define new test asset to verify model predictions
+new_asset = pd.DataFrame({
+    'Object Name': ['Test_Hero_Asset'],
+    'Vertices': [1200],
+    'Type': ['Mesh'],
+    'loc_x': [0.5],
+    'loc_y': [0.2],
+    'loc_z': [0.8]
 })
 
-# Sort DataFrame by clusters
-sorted_df = results_df.sort_values(by="Cluster")
+# Predict the target label for the test asset using the trained pipeline
+prediction = pipeline.predict(new_asset)
 
-# Output dataset dimensions
-print(f"{sorted_df.to_string()}")
+# Map the binary prediction to string status labels
+result = "PDR" if prediction[0] == 1 else "WIP"
+
+# Output dataset and test asset output
+print(f"{df.to_string()}")
+print(f"Test Object To Predict:\nObject: {new_asset['Object Name'][0]} | Result: {result}")
