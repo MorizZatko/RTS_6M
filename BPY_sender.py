@@ -1,26 +1,52 @@
-"""Blender sender.
+"""Blender live tracker and sender.
 
-This module sends binary coordinates to blender via a UDP socket to server adress "127.0.0.1" on port 5005.
-Using a random generator, it sends new coordinate every 0.1 seconds.
+This module sends binary coordinates to blender via a UDP socket to server address "127.0.0.1" on port 5005.
+Using Computer Vision and a webcam, it tracks a red object, draws a red circle onto the tracked center point, and sends the coordinates to Blender.
 """
 
 import socket
-import random
-import time
+import cv2
 
+# Setup socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-server_adress = ('127.0.0.1', 5005)
+server_address = ('127.0.0.1', 5005)
 
-def random_coords(counts=120):
-    """Generate random coordinates and sends them to Blender."""
-    message_x = 100
-    message_y = 200
+# Initialize camera
+cam = cv2.VideoCapture(0)
 
-    for _ in range(counts):
-        message_x += random.choice([-2, 0, 2])
-        message_y += random.choice([-2, 0, 2])
-        time.sleep(0.1)
-        message = f"{message_x},{message_y}".encode('utf-8')
-        sock.sendto(message, server_adress)
+while True:
+    ret, frame = cam.read()
 
-random_coords()
+    # Color convertion and masking
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    lower_red = (0, 120, 70)
+    upper_red = (10, 255, 255)
+    mask = cv2.inRange(hsv, lower_red, upper_red)
+
+    # Find contours
+    contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if contours:
+        largest = max(contours, key=cv2.contourArea)
+        M = cv2.moments(largest)
+
+        # Calculate and send coordinates to Blender
+        if M["m00"] != 0:
+            cx = int(M["m10"] / M["m00"])
+            cy = int(M["m01"] / M["m00"])
+            message = f"{cx},{cy}".encode('utf-8')
+            sock.sendto(message, server_address)
+
+            # Draw circle onto the tracked area
+            cv2.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
+
+    # Show live view and ends it by pressing "q"
+    cv2.imshow("Tracking", frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cam.release()
+cv2.destroyAllWindows()
+
+
+
+
